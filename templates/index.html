@@ -1,0 +1,54 @@
+{% extends "base.html" %}
+{% load static %}
+{% block content %}
+<div class="jumbotron">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-4">
+        <div class="mytext" style="padding-top: 100px;">
+          <h1 class="display-4">Petunjuk Rakitan</h1>
+          <p class="lead">Halaman ini akan menjelaskan secara singkat tentang hal hal yang perlu diperhatikan dalam merakit komputer</p>
+          <a class="btn btn-primary btn-lg" href="#" role="button">Akses Tutorial</a>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <img class="d-block w-100 h-100" src="{% static "img/jumbotron1.jpg" %}" alt="" style="padding-top: 35px;">
+      </div>
+      <div class="col-md-4">
+        <img class="d-block w-100 h-100" src="{% static "img/jumbotron2.jpg" %}" alt="" style="padding-top: 35px;">
+      </div>
+    </div>
+  </div>
+</div>
+<div class="container">
+  <h5 style="padding-top: 30px;">Contoh Rakitan</h5>
+  <hr style="border: 1px solid black">
+  <div class="row">
+    <div class="col-md-4">
+      <img class="d-block w-100 h-100" src="{% static "img/jumbotron1.jpg" %}" alt="" style="padding-top: 35px;">
+    </div>
+    <div class="col-md-4">
+      <img class="d-block w-100 h-100" src="{% static "img/jumbotron2.jpg" %}" alt="" style="padding-top: 35px;">
+    </div>
+    <div class="col-md-4">
+      <img class="d-block w-100 h-100" src="{% static "img/jumbotron2.jpg" %}" alt="" style="padding-top: 35px;">
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-4">
+      <img class="d-block w-100 h-100" src="{% static "img/jumbotron1.jpg" %}" alt="" style="padding-top: 35px;">
+    </div>
+    <div class="col-md-4">
+      <img class="d-block w-100 h-100" src="{% static "img/jumbotron2.jpg" %}" alt="" style="padding-top: 35px;">
+    </div>
+    <div class="col-md-4">
+      <div class="button" style="padding: 200px 150px 200px 30px">
+        <a class="btn btn-primary btn-lg" href="#" role="button">Cek Contoh Rakitan Lainnya</a>
+      </div>
+    </div>
+  </div>
+  <h5 style="padding-top: 50px;">Blog</h5>
+  <hr style="border: 1px solid black">
+</div>
+
+{% endblock %}
