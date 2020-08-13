@@ -1,0 +1,43 @@
+{% extends "base.html" %}
+{% block content %}
+  <div class="container">
+    <div class="jumbotron">
+      <div class="row">
+        <img style="display: block; margin-left: auto; margin-right: auto;" class="d-block w-50 h-80" src="{{ storage.thumb_pic.url}}" alt="{{ storage.name }}" >
+
+        <table class="table table-striped">
+          <tr>
+            <th>Nama</th>
+            <th>{{storage.name}}</th>
+          </tr>
+          <tr>
+            <th>Merk Pabrik</th>
+            <th>{{storage.manufacturer}}</th>
+          </tr><tr>
+            <th>Kapasitas</th>
+            <th>{{storage.mem_cap}} GB</th>
+          </tr><tr>
+            <th>Tipe</th>
+            <th>{{storage.type}} RPM</th>
+          </tr><tr>
+            <th>Cache</th>
+            <th>{{storage.cache}} MB</th>
+          </tr><tr>
+            <th>Form Factor</th>
+            <th>{{storage.form_factor}}</th>
+          </tr><tr>
+            <th>Interface</th>
+            <th>{{storage.str_interface}} GB/s</th>
+          </tr><tr>
+            <th>NVME</th>
+            <th>{{storage.nvme}} MHz</th>
+          </tr><tr>
+          <tr>
+            <th>Harga</th>
+            <th>Rp. {{storage.price}}</th>
+          </tr>
+        </table>
+      </div>
+    </div>
+  </div>
+{% endblock %}

@@ -1,0 +1,90 @@
+{% extends "base.html" %}
+{% block content %}
+  <div class="container">
+    <div class="jumbotron">
+      <div class="row">
+        <img style="display: block; margin-left: auto; margin-right: auto;" class="d-block w-50 h-80" src="{{ cpu.thumb_pic.url}}" alt="{{ cpu.name }}" >
+
+        <table class="table table-striped">
+          <tr>
+            <th>Nama</th>
+            <th>{{cpu.name}}</th>
+          </tr>
+          <tr>
+            <th>Merk Pabrik</th>
+            <th>{{cpu.manufacturer}}</th>
+          </tr><tr>
+            <th>Seri Bagian</th>
+            <th>{{cpu.part}}</th>
+          </tr><tr>
+            <th>Jumlah Core</th>
+            <th>{{cpu.core_count}}</th>
+          </tr><tr>
+            <th>Core Clock</th>
+            <th>{{cpu.core_clock}} GHz</th>
+          </tr><tr>
+            <th>Boost Clock</th>
+            <th>{{cpu.boost_clock}} GHz</th>
+          </tr><tr>
+            <th>Daya</th>
+            <th>{{cpu.tdp}} W</th>
+          </tr><tr>
+            <th>Seri</th>
+            <th>{{cpu.series}}</th>
+          </tr><tr>
+            <th>Microarchitecture</th>
+            <th>{{cpu.mic_arc}}</th>
+          </tr>
+          <tr>
+            <th>Core Family</th>
+            <th>{{cpu.core_fam}}</th>
+          </tr>
+          <tr>
+            <th>Socket</th>
+            <th>{{cpu.socket}}</th>
+          </tr>
+          <tr>
+            <th>Integrated Graphics</th>
+            <th>{{cpu.integ_graph}}</th>
+          </tr>
+          <tr>
+            <th>ECC Support</th>
+            <th>{{cpu.ecc_sup}}</th>
+          </tr>
+          <tr>
+            <th>Packaging</th>
+            <th>{{cpu.package}}</th>
+          </tr>
+          <tr>
+            <th>Termasuk CPU Cooler</th>
+            <th>{{cpu.inc_cool}}</th>
+          </tr>
+          <tr>
+            <th>L1 Cache</th>
+            <th>{{cpu.l1_cache}}</th>
+          </tr>
+          <tr>
+            <th>L2 Cache</th>
+            <th>{{cpu.l2_cache}}</th>
+          </tr>
+          <tr>
+            <th>L3 Cache</th>
+            <th>{{cpu.l3_cache}}</th>
+          </tr>
+          <tr>
+            <th>Lithography</th>
+            <th>{{cpu.litho}}</th>
+          </tr>
+          <tr>
+            <th>Simultaneous Multithreading</th>
+            <th>{{cpu.sim_multhread}}</th>
+          </tr>
+          <tr>
+            <th>Harga</th>
+            <th>Rp. {{cpu.price}}</th>
+          </tr>
+        </table>
+      </div>
+    </div>
+  </div>
+{% endblock %}

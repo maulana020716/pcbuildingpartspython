@@ -1,0 +1,58 @@
+{% extends "base.html" %}
+{% block content %}
+  <div class="container">
+    <div class="jumbotron">
+      <div class="row">
+        <img style="display: block; margin-left: auto; margin-right: auto;" class="d-block w-50 h-80" src="{{ ram.thumb_pic.url}}" alt="{{ ram.name }}" >
+
+        <table class="table table-striped">
+          <tr>
+            <th>Nama</th>
+            <th>{{ram.name}}</th>
+          </tr>
+          <tr>
+            <th>Merk Pabrik</th>
+            <th>{{ram.manufacturer}}</th>
+          </tr><tr>
+            <th>Seri Bagian</th>
+            <th>{{ram.part}}</th>
+          </tr><tr>
+            <th>Form Factor</th>
+            <th>{{ram.form_factor}}</th>
+          </tr><tr>
+            <th>Module</th>
+            <th>{{ram.module}} GB</th>
+          </tr><tr>
+            <th>Warna</th>
+            <th>{{ram.color}}</th>
+          </tr><tr>
+            <th>First Word Latency</th>
+            <th>{{ram.fw_latency}} MHz</th>
+          </tr><tr>
+            <th>CAS Latency</th>
+            <th>{{ram.cas_latency}} MHz</th>
+          </tr><tr>
+            <th>Voltase</th>
+            <th>{{ram.voltage}}</th>
+          </tr>
+          <tr>
+            <th>Timing</th>
+            <th>{{ram.timing}}</th>
+          </tr>
+          <tr>
+            <th>ECC / Registered</th>
+            <th>{{ram.ecc_reg}}</th>
+          </tr>
+          <tr>
+            <th>Heat Spreader</th>
+            <th>{{ram.heat_spread}}</th>
+          </tr>
+          <tr>
+            <th>Harga</th>
+            <th>Rp. {{ram.price}}</th>
+          </tr>
+        </table>
+      </div>
+    </div>
+  </div>
+{% endblock %}

@@ -1,0 +1,46 @@
+{% extends "base.html" %}
+{% block content %}
+  <div class="container">
+    <form method="GET" action=".">
+      <div class="row">
+        <form class="form-inline" >
+          <input class="form-control col-lg-10" type="search" placeholder="Masukan Nama" name="name_contains" aria-label="Search">
+          <button class="btn btn-secondary col-lg-2" type="submit">Cari Storage</button>
+        </form>
+      </div>
+    </form>
+    <br>
+      <div class="row">
+      <div class="table-responsive">
+        <table class="table table-striped" style="font-size:12px">
+          <thead style="text-align:center">
+            <th scope="col">Nama</th>
+            <th scope="col">Kapasitas</th>
+            <th scope="col">Tipe</th>
+            <th scope="col">Cache</th>
+            <th scope="col">Form Factor</th>
+            <th scope="col">Interface</th>
+            <th scope="col">Harga</th>
+          </thead>
+          <tbody>
+            {% for storage in queryset %}
+            <tr>
+
+              <td><a href="{% url 'sim:storage_detail' pk=storage.pk %}" style="color:black; padding-top: 30px;"><img style="display: block; float:left; margin-right:15px; width:50px; height:50px"  src="{{ storage.thumb_pic.url}}" alt="{{ storage.name }}">{{ storage.name }}</a></td>
+              <td style="text-align:center">{{storage.mem_cap}} GB</td>
+              <td style="text-align:center">{{storage.type}} RPM</td>
+              <td style="text-align:center">{{storage.cache}} MB</td>
+              <td style="text-align:center">{{storage.form_factor}}</td>
+              <td style="text-align:center">{{storage.str_interface}} GB/s</td>
+              <td style="text-align:center">Rp. {{storage.price}}</td>
+
+            </tr>
+            {% endfor %}
+          </tbody>
+        </table>
+      </div>
+
+
+      </div>
+  </div>
+{% endblock %}

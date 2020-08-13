@@ -1,0 +1,106 @@
+{% extends "base.html" %}
+{% block content %}
+  <div class="container">
+    <div class="jumbotron">
+      <div class="row">
+        <img style="display: block; margin-left: auto; margin-right: auto;" class="d-block w-50 h-80" src="{{ vga.thumb_pic.url}}" alt="{{ vga.name }}" >
+
+        <table class="table table-striped">
+          <tr>
+            <th>Nama</th>
+            <th>{{vga.name}}</th>
+          </tr>
+          <tr>
+            <th>Merk Pabrik</th>
+            <th>{{vga.manufacturer}}</th>
+          </tr><tr>
+            <th>Seri Bagian</th>
+            <th>{{vga.part}}</th>
+          </tr><tr>
+            <th>Chipset</th>
+            <th>{{vga.chipset}}</th>
+          </tr><tr>
+            <th>Memory</th>
+            <th>{{vga.mem_cap}} GHz</th>
+          </tr><tr>
+            <th>Memory Type</th>
+            <th>{{vga.mem_type}} GHz</th>
+          </tr><tr>
+            <th>Core Clock</th>
+            <th>{{vga.core_clock}} MHz</th>
+          </tr><tr>
+            <th>Boost Clock</th>
+            <th>{{vga.boost_clock}} MHz</th>
+          </tr><tr>
+            <th>Effective Memory Clock</th>
+            <th>{{vga.eff_mem_clock}}</th>
+          </tr>
+          <tr>
+            <th>Interface</th>
+            <th>{{vga.vga_interface}}</th>
+          </tr>
+          <tr>
+            <th>Warna</th>
+            <th>{{vga.color}}</th>
+          </tr>
+          <tr>
+            <th>SLI/CrossFire</th>
+            <th>{{vga.sli}}</th>
+          </tr>
+          <tr>
+            <th>Frame Sync</th>
+            <th>{{vga.frame_sync}}</th>
+          </tr>
+          <tr>
+            <th>Ukuran Panjang</th>
+            <th>{{vga.length}}</th>
+          </tr>
+          <tr>
+            <th>Daya</th>
+            <th>{{vga.tdp}}</th>
+          </tr>
+          <tr>
+            <th>Port DVI</th>
+            <th>{{vga.dvi}}</th>
+          </tr>
+          <tr>
+            <th>Port HDMI</th>
+            <th>{{vga.hdmi_port}}</th>
+          </tr>
+          <tr>
+            <th>Port Mini-HDMI</th>
+            <th>{{vga.mini_hdmi}}</th>
+          </tr>
+          <tr>
+            <th>Jumlah Port DisplayPort</th>
+            <th>{{vga.display_port}}</th>
+          </tr>
+          <tr>
+            <th>Jumlah Port Mini-DisplayPort</th>
+            <th>{{vga.mini_disp_port}}</th>
+          </tr>
+          <tr>
+            <th>Lebar Expansion Slot</th>
+            <th>{{vga.expan_slot}}</th>
+          </tr>
+          <tr>
+            <th>Cooling</th>
+            <th>{{vga.cool}}</th>
+          </tr>
+          <tr>
+            <th>Daya External</th>
+            <th>{{vga.ex_power}}</th>
+          </tr>
+          <tr>
+            <th>DisplayPort</th>
+            <th>{{vga.display}}</th>
+          </tr>
+          <tr>
+            <th>Harga</th>
+            <th>Rp. {{vga.price}}</th>
+          </tr>
+        </table>
+      </div>
+    </div>
+  </div>
+{% endblock %}

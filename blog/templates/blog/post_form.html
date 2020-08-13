@@ -1,11 +1,12 @@
 {% extends 'base.html' %}
+{% load bootstrap4 %}
 {% block content %}
 <div class="container">
   <div class="jumbotron">
     <h1>Buat Blog</h1>
     <form class="post-form" enctype="multipart/form-data" method="POST">
         {% csrf_token %}
-        {{form.as_p}}
+        {% bootstrap_form form %}
         <button type="submit" class="btn btn-secondary">Simpan</button>
     </form>
   </div>

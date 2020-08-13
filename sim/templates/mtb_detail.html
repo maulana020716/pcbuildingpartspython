@@ -1,0 +1,129 @@
+{% extends "base.html" %}
+{% block content %}
+  <div class="container">
+    <div class="jumbotron">
+      <div class="row">
+        <img style="display: block; margin-left: auto; margin-right: auto;" class="d-block w-50 h-80" src="{{ motherboard.thumb_pic.url}}" alt="{{ motherboard.name }}" >
+
+        <table class="table table-striped">
+          <tr>
+            <th>Nama</th>
+            <th>{{motherboard.name}}</th>
+          </tr>
+          <tr>
+            <th>Merk Pabrik</th>
+            <th>{{motherboard.manufacturer}}</th>
+          </tr><tr>
+            <th>Seri Bagian</th>
+            <th>{{motherboard.part}}</th>
+          </tr><tr>
+            <th>Form Factor</th>
+            <th>{{motherboard.form_factor}}</th>
+          </tr><tr>
+            <th>Chipset</th>
+            <th>{{motherboard.chipset}}</th>
+          </tr><tr>
+            <th>Memory Max</th>
+            <th>{{motherboard.mem_max}}</th>
+          </tr>
+          <tr>
+            <th>Socket</th>
+            <th>{{motherboard.socket}}</th>
+          </tr>
+          <tr>
+            <th>Tipe Memory</th>
+            <th>{{motherboard.mem_type}}</th>
+          </tr>
+          <tr>
+            <th>Slot Memory</th>
+            <th>{{motherboard.mem_slot}}</th>
+          </tr>
+          <tr>
+            <th>Warna</th>
+            <th>{{motherboard.color}}</th>
+          </tr>
+          <tr>
+            <th>SLI</th>
+            <th>{{motherboard.sli}}</th>
+          </tr>
+          <tr>
+            <th>Slot PCI-E x16</th>
+            <th>{{motherboard.pcie_16_slot}}</th>
+          </tr>
+          <tr>
+            <th>Slot PCI-E x8</th>
+            <th>{{motherboard.pcie_8_slot}}</th>
+          </tr>
+          <tr>
+            <th>Slot PCI-E x4</th>
+            <th>{{motherboard.pcie_4_slot}}</th>
+          </tr>
+          <tr>
+            <th>Slot PCI-E x1</th>
+            <th>{{motherboard.pcie_1_slot}}</th>
+          </tr>
+          <tr>
+            <th>Slot M.2</th>
+            <th>{{motherboard.m2_slot}}</th>
+          </tr>
+          <tr>
+            <th>Slot mSATA</th>
+            <th>{{motherboard.msata_slot}}</th>
+          </tr>
+          <tr>
+            <th>Onboard Ethernet</th>
+            <th>{{motherboard.on_ethernet}}</th>
+          </tr>
+          <tr>
+            <th>SATA 6 Gb/s</th>
+            <th>{{motherboard.sata_6}}</th>
+          </tr>
+          <tr>
+            <th>Onboard Video</th>
+            <th>{{motherboard.on_video}}</th>
+          </tr>
+          <tr>
+            <th>USB 2.0 Headers</th>
+            <th>{{motherboard.usb_2_0_head}}</th>
+          </tr>
+          <tr>
+            <th>USB 3.2 Gen 1 Headers</th>
+            <th>{{motherboard.usb_3_2_head_gen1}}</th>
+          </tr>
+          <tr>
+            <th>USB 3.2 Gen 2 Headers</th>
+            <th>{{motherboard.usb_3_2_head_gen2}}</th>
+          </tr>
+          <tr>
+            <th>USB 3.2 Gen 2x2 Headers</th>
+            <th>{{motherboard.usb_3_2_head_gen2x2}}</th>
+          </tr>
+          <tr>
+            <th>Support ECC</th>
+            <th>{{motherboard.support_ecc}}</th>
+          </tr>
+          <tr>
+            <th>Wireless Network</th>
+            <th>{{motherboard.wireless_net}}</th>
+          </tr>
+          <tr>
+            <th>RAID Support</th>
+            <th>{{motherboard.raid_supp}}</th>
+          </tr>
+          <tr>
+            <th>Interface VGA</th>
+            <th>{{motherboard.vga_interface}}</th>
+          </tr>
+          <tr>
+            <th>Interface Storage</th>
+            <th>{{motherboard.str_interface}}</th>
+          </tr>
+          <tr>
+            <th>Harga</th>
+            <th>Rp. {{motherboard.price}}</th>
+          </tr>
+        </table>
+      </div>
+    </div>
+  </div>
+{% endblock %}

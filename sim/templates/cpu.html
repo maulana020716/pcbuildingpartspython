@@ -1,0 +1,48 @@
+{% extends "base.html" %}
+{% block content %}
+  <div class="container">
+    <form method="GET" action=".">
+      <div class="row">
+        <form class="form-inline" >
+          <input class="form-control col-lg-10" type="search" placeholder="Masukan Nama" name="name_contains" aria-label="Search">
+          <button class="btn btn-secondary col-lg-2" type="submit">Cari Cpu</button>
+        </form>
+      </div>
+    </form>
+    <br>
+      <div class="row">
+      <div class="table-responsive">
+        <table class="table table-sm table-striped">
+          <thead style="text-align:center">
+            <th scope="col">Nama</th>
+            <th scope="col">Socket</th>
+            <th scope="col">Core Clock</th>
+            <th scope="col">Boost Clock</th>
+            <th scope="col">Daya</th>
+            <th scope="col">Integrated Graphics</th>
+            <th scope="col">SMT</th>
+            <th scope="col">Harga</th>
+          </thead>
+          <tbody>
+            {% for cpu in queryset %}
+            <tr>
+
+              <td><a href="{% url 'sim:cpu_detail' pk=cpu.pk %}" style="color:black;"><img style="display: block; float:left; margin-right:15px; width:50px; height:50px"  src="{{ cpu.thumb_pic.url}}" alt="{{ cpu.name }}">{{ cpu.name }}</a></td>
+              <td style="text-align:center">{{cpu.socket}}</td>
+              <td style="text-align:center">{{cpu.core_count}} GHz</td>
+              <td style="text-align:center">{{cpu.core_clock}} GHz</td>
+              <td style="text-align:center">{{cpu.tdp}} W</td>
+              <td style="text-align:center">{{cpu.integ_graph}}</td>
+              <td style="text-align:center">{{cpu.sim_multhread}}</td>
+              <td style="text-align:center">Rp. {{cpu.price}}</td>
+
+            </tr>
+            {% endfor %}
+          </tbody>
+        </table>
+      </div>
+
+
+      </div>
+  </div>
+{% endblock %}

@@ -1,18 +1,22 @@
-{% extends 'index.html' %}
-{% block drafts %}
+{% extends 'base.html' %}
+{% block content %}
 <div class="container">
-  <div class="row">
-    <div class="col-md-4">
-      {% for post in post_list %}
-        <div class="post">
-          <p class="date">created: {{post.created_date}}</p>
-          <h1><a href="{% url 'blog:post_detail' pk=post.pk %}">{{post.title}}</a></h1>
-          <p>{{post.text|truncatechars:200|safe}}</p>
-        </div>
-      {% endfor %}
+  <div class="jumbotron">
+    <div class="row">
+    {% for post in post_list %}
+      <div class="col-md-12">
+        <a href="{% url 'blog:post_detail' pk=post.pk %}">
+        <h1 style="text-align:center;">{{post.title}}</h1>
+        <img style="display: block; margin-left: auto; margin-right: auto;" class="d-block w-120 h-80" src="{{ post.thumb_pic.url}}" alt="{{ post.title }}" >
+        </a>
+        <p>{{post.text|safe|truncatechars_html:500}}</p>
+
+      </div>
+      <br>
+    {% endfor %}
     </div>
   </div>
 
 </div>
-
+<br>
 {% endblock %}

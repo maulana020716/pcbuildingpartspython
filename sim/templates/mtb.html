@@ -1,0 +1,47 @@
+{% extends "base.html" %}
+{% block content %}
+  <div class="container" >
+      <form method="GET" action=".">
+        <div class="row">
+          <form class="form-inline" >
+            <input class="form-control col-lg-10" type="search" placeholder="Masukan Nama" name="name_contains" aria-label="Search">
+            <button class="btn btn-secondary col-lg-2" type="submit">Cari Motherboard</button>
+          </form>
+        </div>
+      </form>
+      <br>
+      <div class="row">
+
+        <div class="table-responsive">
+          <table class="table table-striped" style="font-size:12px;">
+            <thead  style="text-align:center">
+              <th scope="col">Nama</th>
+              <th scope="col">Socket</th>
+              <th scope="col">Form Factor</th>
+              <th scope="col">Memory Max</th>
+              <th scope="col">Slot Memory</th>
+              <th scope="col">Warna</th>
+              <th scope="col">Harga</th>
+            </thead>
+            <tbody>
+              {% for mtb in queryset %}
+              <tr>
+
+                <td><a href="{% url 'sim:mtb_detail' pk=mtb.pk %}" style="color:black;"><img style="display: block; float:left; margin-right:15px; width:50px; height:50px"  src="{{ mtb.thumb_pic.url}}" alt="{{ mtb.name }}">{{ mtb.name }}</a></td>
+                <td style="text-align:center">{{mtb.socket}}</td>
+                <td style="text-align:center">{{mtb.form_factor}}</td>
+                <td style="text-align:center">{{mtb.mem_max}} GB</td>
+                <td style="text-align:center">{{mtb.mem_slot}}</td>
+                <td style="text-align:center">{{mtb.color}}</td>
+                <td style="text-align:center">Rp. {{mtb.price}}</td>
+
+              </tr>
+              {% endfor %}
+            </tbody>
+          </table>
+        </div>
+
+
+      </div>
+  </div>
+{% endblock %}

@@ -1,0 +1,48 @@
+{% extends "base.html" %}
+{% block content %}
+  <div class="container">
+    <form method="GET" action=".">
+      <div class="row">
+        <form class="form-inline" >
+          <input class="form-control col-lg-10" type="search" placeholder="Masukan Nama" name="name_contains" aria-label="Search">
+          <button class="btn btn-secondary col-lg-2" type="submit">Cari Vga</button>
+        </form>
+      </div>
+    </form>
+    <br>
+      <div class="row">
+      <div class="table-responsive">
+        <table class="table table-sm table-striped" style="font-size:12px">
+          <thead style="text-align:center">
+            <th scope="col">Nama</th>
+            <th scope="col">Chipset</th>
+            <th scope="col">Memory</th>
+            <th scope="col">Core Clock</th>
+            <th scope="col">Boost Clock</th>
+            <th scope="col">Interface</th>
+            <th scope="col">Warna</th>
+            <th scope="col">Harga</th>
+          </thead>
+          <tbody>
+            {% for vga in queryset %}
+            <tr>
+
+              <td><a href="{% url 'sim:vga_detail' pk=vga.pk %}" style="color:black; padding-top: 30px;"><img style="display: block; float:left; margin-right:15px; width:50px; height:50px"  src="{{ vga.thumb_pic.url}}" alt="{{ vga.name }}">{{ vga.name }}</a></td>
+              <td style="text-align:center">{{vga.chipset}}</td>
+              <td style="text-align:center">{{vga.mem_cap}} GB</td>
+              <td style="text-align:center">{{vga.core_clock}} MHz</td>
+              <td style="text-align:center">{{vga.boost_clock}} MHz</td>
+              <td style="text-align:center">{{vga.vga_interface}}</td>
+              <td style="text-align:center">{{vga.color}}</td>
+              <td style="text-align:center">Rp. {{vga.price}}</td>
+
+            </tr>
+            {% endfor %}
+          </tbody>
+        </table>
+      </div>
+
+
+      </div>
+  </div>
+{% endblock %}
