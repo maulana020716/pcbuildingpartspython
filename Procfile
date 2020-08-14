@@ -1,1 +1,1 @@
-web: gunicorn pcbuildingparts.wsgi --log-file -
+web: gunicorn dss_project.wsgi --log-file -
