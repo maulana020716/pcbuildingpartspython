@@ -27,7 +27,7 @@ SECRET_KEY = '5u53+p4k-_=70wwg-igg7_5r9!5vh-c6@@hcl&**(e6fod8d(a'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['https://pcbuildingparts.herokuapp.com/']
+ALLOWED_HOSTS = ['pcbuildingparts.herokuapp.com']
 
 
 # Application definition
