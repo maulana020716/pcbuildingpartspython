@@ -124,25 +124,49 @@ class CreateSimView(LoginRequiredMixin, CreateView): # new
     template_name = 'sim_post.html'
     redirect_field_name = 'sim/sim.html'
 
-    # def SimReq(request):
-    #     sim = simpost(request)
-    #     context = {
-    #         'queryset': sim,
-    #     }
-    #     return render(request, 'sim_post.html', context)
-    #
-    #
-    # def simpost(request):
-    #     mtb = Motherboard.objects.all()
-    #     cpu = Cpu.objects.all()
-    #     vga = Vga.objects.all()
-    #     ram = Ram.objects.all()
-    #     storage = Storage.objects.all()
-    #     mtbform = request.GET.get('mtb_name')
-    #     cpuform = request.GET.get('cpu_name')
-    #     vgaform = request.GET.get('vga_name')
-    #     ramform = request.GET.get('ram_name')
-    #     strform = request.GET.get('str_name')
-    #
-    #     if is_valid_queryparam(mtbform):
-    #         sim = Cpu.objects.raw(select socket from cpu where name = cpu_name )
+
+    def simpost(request):
+        mtb = Motherboard.objects.all()
+        cpu = Cpu.objects.all()
+        vga = Vga.objects.all()
+        ram = Ram.objects.all()
+        storage = Storage.objects.all()
+
+        mtbform = request.GET.get('mtb_name')
+        cpuform = request.GET.get('cpu_name')
+        vgaform = request.GET.get('vga_name')
+        ramform = request.GET.get('ram_name')
+        strform = request.GET.get('str_name')
+
+        simcpu = cpu.objects.values_list('socket', flat=True).filter(name__icontains=cpuform)
+        simcpu1 = mtb.objects.values_list('socket', flat=True).filter(name__icontains=mtbform)
+
+        simvga = vga.objects.values_list('vga_interface', flat=True).filter(name__icontains=vgaform)
+        simvga1 = mtb.objects.values_list('vga_interface', flat=True).filter(name__icontains=mtbform)
+
+        simram = ram.objects.values_list('mem_type', flat=True).filter(name__icontains=ramform)
+        simram1 = mtb.objects.values_list('mem_type', flat=True).filter(name__icontains=mtbform)
+
+        simstr = str.objects.values_list('str_interface', flat=True).filter(name__icontains=strform)
+        simstr1 = mtb.objects.values_list('str_interface', flat=True).filter(name__icontains=mtbform)
+
+        if simcpu == simcpu1 :
+            if simvga == simvga1:
+                if simram == simram1:
+                    if simstr == simstr1:
+                        form = SimPostForm(request.POST)
+                        if form.is_valid():
+                            form.save()
+                        return render(mtbform,cpuform,vgaform,ramform,strform,"/")
+                    else:
+                        strform = "not compatible"
+                        return render(mtbform,cpuform,vgaform,ramform,strform,"/")
+                else:
+                    ramform = "not compatible"
+                    return render(mtbform,cpuform,vgaform,ramform,strform,"/")
+            else:
+                vgaform = "not compatible"
+                return render(mtbform,cpuform,vgaform,ramform,strform,"/")
+        else:
+            cpuform = "not compatible"
+            return render(mtbform,cpuform,vgaform,ramform,strform,"/")
