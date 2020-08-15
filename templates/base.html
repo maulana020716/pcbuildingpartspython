@@ -53,7 +53,7 @@
                       Selamat Datang Admin
                     </a>
                     <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                      <a class="dropdown-item" href="http://127.0.0.1:8000/admin">Admin</a>
+                      <a class="dropdown-item" href="{% url 'admin:index' %}">Admin</a>
                       <a class="dropdown-item" href="{% url 'blog:post_new' %}" >New Post</a>
                       <a class="dropdown-item" href="{% url 'blog:post_draft_list' %}">Drafts</a>
                       <a class="dropdown-item" href="{% url 'accounts:logout' %}">Logout</a>
