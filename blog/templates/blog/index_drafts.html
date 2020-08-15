@@ -3,7 +3,7 @@
     <div class="row">
     {% for post in post_list %}
       <div class="col-md-4">
-        <img class="d-block w-100 h-50" src="{{ post.thumb_pic.url}}" alt="{{ post.title }}" >
+        <img style="width:100%;" class="d-block w-100 h-50" src="{{ post.thumb_pic.url}}" alt="{{ post.title }}" >
         <p><a href="{% url 'blog:post_detail' pk=post.pk %}">{{post.title}}</a></p>
         <p class="date">created: {{post.created_date}}</p>
         <p>{{post.text|safe|truncatechars_html:200}}</p>
