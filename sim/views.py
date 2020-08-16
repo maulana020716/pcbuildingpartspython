@@ -121,7 +121,7 @@ class CreateSimView(LoginRequiredMixin, CreateView):
     model = Simulation
     form_class = SimPostForm
     template_name = 'sim_post.html'
-    redirect_field_name = 'sim/sim.html'
+    redirect_field_name = 'sim/sim_res.html'
 
 
     def simpost(request):
@@ -169,3 +169,6 @@ class CreateSimView(LoginRequiredMixin, CreateView):
         else:
             cpuform = "not compatible"
             return render(mtbform,cpuform,vgaform,ramform,strform,"/")
+
+def SimRes(request):
+    return render(request,"sim_res.html")
