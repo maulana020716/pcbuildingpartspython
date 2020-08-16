@@ -117,8 +117,7 @@ class CreateMtbView(LoginRequiredMixin, CreateView): # new
     template_name = 'mtb_post.html'
     redirect_field_name = 'sim/mtb.html'
 
-class CreateSimView(LoginRequiredMixin, CreateView): # new
-    login_url = '/login/'
+class CreateSimView(LoginRequiredMixin, CreateView):
     model = Simulation
     form_class = SimPostForm
     template_name = 'sim_post.html'
