@@ -33,7 +33,7 @@ class PostDeleteView(LoginRequiredMixin,DeleteView):
     model = Post
     success_url = reverse_lazy('blog:post_list')
 
-class DraftListView(LoginRequiredMixin,ListView):
+class DraftListView(ListView):
     template_name = 'blog/post_draft_list.html'
     model = Post
 
