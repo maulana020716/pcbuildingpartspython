@@ -9,8 +9,6 @@
         {% csrf_token %}
         {% bootstrap_form form %}
         <form class="form-inline">
-        </form>
-        <form class="form-inline">
             <button type="submit" class="btn btn-primary mb-2" style="margin-right:5px">Login</button>
           <div class="form-group mb-2">
             <h6>Belum Punya Akun ?<a href="{% url 'accounts:signup' %}"> Daftar</a></h6>
