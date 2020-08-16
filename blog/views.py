@@ -29,7 +29,7 @@ class PostUpdateView(LoginRequiredMixin,UpdateView):
 
 class PostDeleteView(LoginRequiredMixin,DeleteView):
     model = Post
-    success_url = reverse_lazy('blog:post_list')
+    success_url = reverse_lazy('blog:post_draft_list')
 
 class DraftListView(ListView):
     template_name = 'blog/post_draft_list.html'
