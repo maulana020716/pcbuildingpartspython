@@ -6,30 +6,7 @@
       <h1>Pilih Parts</h1>
         <form method="post" enctype="multipart/form-data">
           {% csrf_token %}
-          <div class="form-group">
-            <label for="build">Nama Rakitan</label>
-          <input class="form-control" type="text" id="build" name="build_name" value="{{ form.build_name.value|default_if_none:"" }}">
-          </div>
-          <div class="form-group">
-            <label for="mtb">Motherboard</label>
-          <input class="form-control" id="mtb" type="text" name="mtb_name" value="{{ form.mtb_name.value|default_if_none:"" }}">
-        </div>
-        <div class="form-group">
-          <label for="vga">Vga</label>
-          <input class="form-control" id="vga" type="text" name="vga_name" value="{{ form.vga_name.value|default_if_none:"" }}">
-        </div>
-        <div class="form-group">
-          <label for="ram">Ram</label>
-          <input class="form-control" type="text" id="ram" name="ram_name" value="{{ form.ram_name.value|default_if_none:"" }}">
-        </div>
-        <div class="form-group">
-          <label for="storage">Storage</label>
-          <input class="form-control" type="text" id="storage" name="str_name" value="{{ form.storage_name.value|default_if_none:"" }}">
-        </div>
-        <div class="form-group">
-          <label for="cpu">Cpu</label>
-          <input class="form-control" type="text" id="cpu" name="cpu_name" value="{{ form.cpu_name.value|default_if_none:"" }}">
-        </div>
+          {% bootstrap_form form %}
           <button type="submit" class="btn btn-secondary">Cek Kompatibilitas</button>
         </form>
     </div>

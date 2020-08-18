@@ -8,13 +8,11 @@
         <form enctype="multipart/form-data" >
           {% csrf_token %}
           <div class="form-group">
-            <label for="build">Nama Rakitan</label>
-          <input class="form-control" type="text" id="build" name="build_name" value="{{ form.build_name.value|default_if_none:"" }}">
-          </div>
+            
           <div class="form-group">
             <label for="mtb">Motherboard</label>
             <p>
-            <img  style="margin-right:20px;"width="200px" height="100px" src="https://pcbuildingparts.herokuapp.com/media/mtb/2b2897ac0de148a2935c3277573131b3.1600.jpg"><input style="width: 820px;" id="mtb" type="text" name="mtb_name" value="{{ form.mtb_name.value|default_if_none:"" }}"></p>
+            <img  style="margin-right:20px;"width="200px" height="100px" src="https://pcbuildingparts.herokuapp.com/media/mtb/2b2897ac0de148a2935c3277573131b3.1600.jpg"><input style="width: 820px;" value="Gigabyte B450 AORUS M Micro ATX AM4 Motherboard" id="mtb" type="text" name="mtb_name" value="{{ form.mtb_name.value|default_if_none:"" }}"></p>
 
         </div>
         <div class="form-group">

@@ -11,4 +11,4 @@ class SimPostForm(forms.ModelForm):
 
     class Meta:
         model = Simulation
-        fields = ['build_name','mtb_name','cpu_name','vga_name','ram_name','str_name']
+        fields = ['mtb_name','cpu_name','vga_name','ram_name','str_name']
