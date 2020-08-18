@@ -8,33 +8,40 @@
         <form enctype="multipart/form-data" >
           {% csrf_token %}
           <div class="form-group">
-            
           <div class="form-group">
             <label for="mtb">Motherboard</label>
             <p>
-            <img  style="margin-right:20px;"width="200px" height="100px" src="https://pcbuildingparts.herokuapp.com/media/mtb/2b2897ac0de148a2935c3277573131b3.1600.jpg"><input style="width: 820px;" value="Gigabyte B450 AORUS M Micro ATX AM4 Motherboard" id="mtb" type="text" name="mtb_name" value="{{ form.mtb_name.value|default_if_none:"" }}"></p>
-
-        </div>
-        <div class="form-group">
-          <label for="vga">Vga</label>
-          <input class="form-control" id="vga" type="text" name="vga_name" value="{{ form.vga_name.value|default_if_none:"" }}">
-        </div>
-        <div class="form-group">
-          <label for="ram">Ram</label>
-          <input class="form-control" type="text" id="ram" name="ram_name" value="{{ form.ram_name.value|default_if_none:"" }}">
-        </div>
-        <div class="form-group">
-          <label for="storage">Storage</label>
-          <input class="form-control" type="text" id="storage" name="str_name" value="{{ form.storage_name.value|default_if_none:"" }}">
-        </div>
-        <div class="form-group">
-          <label for="cpu">Cpu</label>
-          <input class="form-control" type="text" id="cpu" name="cpu_name" value="{{ form.cpu_name.value|default_if_none:"" }}">
-        </div>
-        <div style="background-color:lightgreen;" class="jumbotron">
-          <p>Selamat !!!.</p>
-          <p>Hardware anda kompatibel silahkan klik masing masing dari hardware untuk melihat detail dan harga jika anda tertarik.</p>
-        </div>
+            <img  style="margin-right:20px;"width="200px" height="100px" src="https://pcbuildingparts.herokuapp.com/media/mtb/9c229eef9d9724da36a40412ab564c17.1600_eQWjqP6.jpg">
+            <input style="width: 820px;" value="Gigabyte B450 AORUS M Micro ATX AM4 Motherboard" id="mtb" type="text" name="mtb_name" value="{{ form.mtb_name.value|default_if_none:"" }}"></p>
+          </div>
+          <div class="form-group">
+            <label for="vga">Vga</label>
+            <p>
+            <img  style="margin-right:20px;"width="200px" height="100px" src="https://pcbuildingparts.herokuapp.com/media/vga/6e5072741610a7e5c15c06b8206464cc.1600_oEGNAye.jpg">
+            <input style="width: 820px;" value="Gigabyte GeForce RTX 2070 SUPER 8 GB WINDFORCE OC 3X Video Card" id="mtb" type="text" name="mtb_name" value="{{ form.mtb_name.value|default_if_none:"" }}"></p>
+          </div>
+          <div class="form-group">
+            <label for="ram">Ram</label>
+            <p>
+            <img  style="margin-right:20px;"width="200px" height="100px" src="https://pcbuildingparts.herokuapp.com/media/vga/6e5072741610a7e5c15c06b8206464cc.1600_oEGNAye.jpg">
+            <input style="width: 820px;" value="Corsair Vengeance LPX 16 GB (2 x 8 GB) DDR4-3200 CL16 Memory" id="mtb" type="text" name="mtb_name" value="{{ form.mtb_name.value|default_if_none:"" }}"></p>
+          </div>
+          <div class="form-group">
+            <label for="storage">Storage</label>
+            <p>
+            <img  style="margin-right:20px;"width="200px" height="100px" src="https://pcbuildingparts.herokuapp.com/media/storage/c7b5b7dacbecdcdd0e073b761193eef6.1600_dinU9Sk.jpg">
+            <input style="width: 820px;" value='Seagate Barracuda Compute 2 TB 3.5" 7200RPM Internal Hard Drive' id="mtb" type="text" name="mtb_name" value="{{ form.mtb_name.value|default_if_none:"" }}"></p>
+          </div>
+          <div class="form-group">
+            <label for="cpu">Cpu</label>
+            <p>
+            <img  style="margin-right:20px;"width="200px" height="100px" src="https://pcbuildingparts.herokuapp.com/media/cpu/c7baf2c9c9cc15ae23adb24c2f4316fc.1600_6IGU1nU.jpg">
+            <input style="width: 820px;" value="AMD Ryzen 5 3600 3.6 GHz 6-Core Processor" id="mtb" type="text" name="mtb_name" value="{{ form.mtb_name.value|default_if_none:"" }}"></p>
+          </div>
+          <div style="background-color:lightgreen;" class="jumbotron">
+            <p>Selamat !!!.</p>
+            <p>Hardware anda kompatibel silahkan klik masing masing dari hardware untuk melihat detail dan harga jika anda tertarik.</p>
+          </div>
           <button type="button"href="{% url 'sim:sim_post' %}" class="btn btn-secondary" >Lakukan Simulasi Lagi</button>
         </form>
     </div>
