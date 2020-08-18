@@ -1,6 +1,6 @@
 from django.urls import path
 
-from .views import MotherboardView, CreateMtbView, MtbDetailView, CpuView, CpuDetailView, VgaView, VgaDetailView, RamView, RamDetailView, StorageView, StorageDetailView, CreateSimView, SimRes
+from .views import MotherboardView, CreateMtbView, MtbDetailView, CpuView, CpuDetailView, VgaView, VgaDetailView, RamView, RamDetailView, StorageView, StorageDetailView, CreateSimView, SimRes, DssPostView,DssRestView
 
 app_name = 'sim'
 
@@ -18,4 +18,6 @@ urlpatterns = [
     path('Storage/post/<int:pk>/', StorageDetailView.as_view(), name='storage_detail'),
     path('simulation/post', CreateSimView.as_view(), name='sim_post'),
     path('simulation/result', SimRes, name='sim_res'),
+    path('simulation/dssform', DssPostView.as_view(), name='dss_form'),
+    path('simulation/dssrest', DssRestView.as_view(), name='dss_rest'),
 ]

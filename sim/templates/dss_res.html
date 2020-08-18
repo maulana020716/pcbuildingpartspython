@@ -1,0 +1,117 @@
+{% extends "base.html" %}
+{% load bootstrap4 %}
+{% block content %}
+  <div class="container">
+    <div class="jumbotron">
+      <h1>Hasil Perbandingan</h1>
+        <form method="post" enctype="multipart/form-data">
+          {% csrf_token %}
+          <br>
+          <div class="row">
+
+            <div class="col-md-2">
+              <h6>Peringkat</h6>
+                <hr>
+            </div>
+            <div class="col-md-2">
+              <h6>Kapasitas Memory</h6>
+                <hr>
+            </div>
+            <div class="col-md-2">
+              <h6>Core Clock</h6>
+                <hr>
+            </div>
+            <div class="col-md-2">
+              <h6>Boost Clock</h6>
+                <hr>
+            </div>
+            <div class="col-md-2">
+              <h6>Harga</h6>
+                <hr>
+            </div>
+            <div class="col-md-2">
+              <h6>Total Nilai</h6>
+                <hr>
+            </div>
+          </div>
+          <form class="form-inline" >
+
+          </form>
+          <div class="row">
+            <div class="col-md-2">
+              <form class="form-inline" >
+                <p><h4 style="margin-right:10px;"> 1</h4><img  width="100px" height="60px" src="https://pcbuildingparts.herokuapp.com/media/vga/6e5072741610a7e5c15c06b8206464cc.1600_oEGNAye.jpg"></p>
+              </form>
+            </div>
+            <div class="col-md-2">
+              <h6>8 GB</h6>
+            </div>
+            <div class="col-md-2">
+              <h6>1605 Mhz</h6>
+            </div>
+            <div class="col-md-2">
+              <h6>1705 Mhz</h6>
+            </div>
+            <div class="col-md-2">
+              <h6>Rp. 9554489</h6>
+            </div>
+            <div class="col-md-2">
+              <h6>0.723</h6>
+            </div>
+          </div>
+          <br>
+          <div class="row">
+            <div class="col-md-2">
+              <form class="form-inline" >
+                <p><h4 style="margin-right:10px;"> 2</h4><img  width="100px" height="60px" src="https://pcbuildingparts.herokuapp.com/media/vga/7a8d66854d65f497aca573e84772d861.256p.jpg"></p>
+              </form>
+            </div>
+            <div class="col-md-2">
+              <h6>8 GB</h6>
+            </div>
+            <div class="col-md-2">
+              <h6>1366 Mhz</h6>
+            </div>
+            <div class="col-md-2">
+              <h6>1386 Mhz</h6>
+            </div>
+            <div class="col-md-2">
+              <h6>Rp. 2524351</h6>
+            </div>
+            <div class="col-md-2">
+              <h6>0.523</h6>
+            </div>
+          </div>
+          <br>
+          <div class="row">
+            <div class="col-md-2">
+              <form class="form-inline" >
+                <p><h4 style="margin-right:10px;"> 3</h4><img  width="100px" height="60px" src="https://pcbuildingparts.herokuapp.com/media/vga/41wfOvv27L.jpg"></p>
+              </form>
+            </div>
+            <div class="col-md-2">
+              <h6>8 GB</h6>
+            </div>
+            <div class="col-md-2">
+              <h6>1470 Mhz</h6>
+            </div>
+            <div class="col-md-2">
+              <h6>1650 Mhz</h6>
+            </div>
+            <div class="col-md-2">
+              <h6>Rp. 5966811</h6>
+            </div>
+            <div class="col-md-2">
+              <h6>0.323</h6>
+            </div>
+          </div>
+
+        </form>
+        <br>
+        <div style="background-color:lightgreen;" class="jumbotron">
+          <p>Tabel diatas adalah peringkat dari hardware terbaik menurut bobot yang anda pilih.</p>
+          <p>Hardware anda kompatibel silahkan klik masing masing dari hardware untuk melihat detail dan harga jika anda tertarik.</p>
+        </div>
+    </div>
+  </div>
+{% endblock %}

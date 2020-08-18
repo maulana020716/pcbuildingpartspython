@@ -12,3 +12,9 @@ class SimPostForm(forms.ModelForm):
     class Meta:
         model = Simulation
         fields = ['mtb_name','cpu_name','vga_name','ram_name','str_name']
+
+class DssPostForm(forms.ModelForm):
+
+    class Meta:
+        model = Simulation
+        fields = ['mtb_name']

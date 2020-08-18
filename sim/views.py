@@ -2,7 +2,7 @@ from django.shortcuts import render
 from django.views.generic import ListView, CreateView, DetailView # new
 from django.urls import reverse_lazy # new
 from django.contrib.auth.mixins import LoginRequiredMixin
-from .forms import MtbPostForm, SimPostForm # new
+from .forms import MtbPostForm, SimPostForm, DssPostForm # new
 from .models import Motherboard,Cpu,Vga,Ram,Storage,Simulation
 from django.db.models import Q, Count
 def is_valid_queryparam(param):
@@ -172,3 +172,15 @@ class CreateSimView(LoginRequiredMixin, CreateView):
 
 def SimRes(request):
     return render(request,"sim_res.html")
+
+class DssPostView(LoginRequiredMixin,ListView):
+    model = Simulation
+    form_class = DssPostForm
+    template_name = 'dss_form.html'
+    redirect_field_name = 'sim/sim_res.html'
+
+class DssRestView(LoginRequiredMixin,ListView):
+    template_name = 'dss_res.html'
+    model = Simulation
+    form_class = DssPostForm
+    redirect_field_name = 'sim/sim_res.html'

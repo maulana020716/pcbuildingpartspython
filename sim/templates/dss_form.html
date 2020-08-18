@@ -1,0 +1,103 @@
+{% extends "base.html" %}
+{% load bootstrap4 %}
+{% block content %}
+  <div class="container">
+    <div class="jumbotron">
+      <h1>Pilih Hardware</h1>
+        <form method="post" enctype="multipart/form-data">
+          {% csrf_token %}
+          <br>
+          <h4>Jenis Hardware</h4>
+          <hr>
+          <form class="form-inline" >
+            <select id="cars" style="width: 1050px; height: 40px;" name="cars">
+              <option value="volvo">Motherboard</option>
+              <option value="saab">Cpu</option>
+              <option value="fiat">Vga</option>
+              <option value="audi">Ram</option>
+              <option value="audi">Storage</option>
+            </select>
+
+          </form>
+          <br>
+          <h4>Spesifikasi</h4>
+          <hr>
+          <form class="form-inline" >
+            <input class="form-control col-lg-10" type="search" placeholder="Cari Hardware" name="name_contains" aria-label="Search">
+            <button class="btn btn-secondary col-lg-2" type="submit">Bandingkan</button>
+          </form>
+          <br>
+          <form class="form-inline" >
+            <p>
+            <img  style="margin-right:20px;"width="200px" height="100px" src="https://pcbuildingparts.herokuapp.com/media/vga/6e5072741610a7e5c15c06b8206464cc.1600_oEGNAye.jpg">
+            <input style="width: 820px;" value="Gigabyte GeForce RTX 2070 SUPER 8 GB WINDFORCE OC 3X Video Card" id="mtb" type="text" name="mtb_name" value="{{ form.mtb_name.value|default_if_none:"" }}"></p>
+          </form>
+          <form class="form-inline" >
+            <p>
+            <img  style="margin-right:20px;"width="200px" height="100px" src="https://pcbuildingparts.herokuapp.com/media/vga/7a8d66854d65f497aca573e84772d861.256p.jpg">
+            <input style="width: 820px;" value="XFX Radeon RX 580 8 GB GTS XXX ED Video Card" id="mtb" type="text" name="mtb_name" value="{{ form.mtb_name.value|default_if_none:"" }}"></p>
+          </form>
+          <form class="form-inline" >
+            <p>
+            <img  style="margin-right:20px;"width="200px" height="100px" src="https://pcbuildingparts.herokuapp.com/media/vga/41wfOvv27L.jpg">
+            <input style="width: 820px;" value="NVIDIA GeForce RTX 2060 SUPER 8 GB Video Card" id="mtb" type="text" name="mtb_name" value="{{ form.mtb_name.value|default_if_none:"" }}"></p>
+          </form>
+          <br>
+        </form>
+        <br>
+        <h4>Bobot</h4>
+        <hr>
+        <div class="row">
+          <div class="col-md-3">
+            <h5>Kapasitas Memory</h5>
+              <hr>
+            <select id="cars" style="width: 200px; height: 30px;" name="cars">
+              <option value="volvo">1</option>
+              <option value="saab">2</option>
+              <option value="fiat">3</option>
+              <option value="audi">4</option>
+              <option value="audi">5</option>
+            </select>
+          </div>
+          <div class="col-md-3">
+            <h5>Core Clock</h5>
+              <hr>
+            <select id="cars" style="width: 200px; height: 30px;" name="cars">
+              <option value="volvo">1</option>
+              <option value="saab">2</option>
+              <option value="fiat">3</option>
+              <option value="audi">4</option>
+              <option value="audi">5</option>
+            </select>
+          </div>
+          <div class="col-md-3">
+            <h5>Boost Clock</h5>
+              <hr>
+            <select id="cars" style="width: 200px; height: 30px;" name="cars">
+              <option value="volvo">1</option>
+              <option value="saab">2</option>
+              <option value="fiat">3</option>
+              <option value="audi">4</option>
+              <option value="audi">5</option>
+            </select>
+          </div>
+          <div class="col-md-3">
+            <h5>Harga</h5>
+              <hr>
+            <select id="cars" style="width: 200px; height: 30px;" name="cars">
+              <option value="volvo">1</option>
+              <option value="saab">2</option>
+              <option value="fiat">3</option>
+              <option value="audi">4</option>
+              <option value="audi">5</option>
+            </select>
+          </div>
+        </div>
+        <br>
+
+        <form action="{% url 'sim:dss_rest' %}">
+            <button type="submit" style="width: 1050px;" class="btn btn-secondary" >Proses</button>
+        </form>
+    </div>
+  </div>
+{% endblock %}
