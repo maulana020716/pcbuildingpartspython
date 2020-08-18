@@ -154,11 +154,11 @@ class Storage(models.Model):
 
 class Simulation(models.Model):
     build_name = models.CharField(blank=False, max_length=150)
-    mtb_name = models.ForeignKey(Motherboard, on_delete=models.CASCADE)
-    cpu_name = models.ForeignKey(Cpu, on_delete=models.CASCADE)
-    vga_name = models.ForeignKey(Vga, on_delete=models.CASCADE)
-    ram_name = models.ForeignKey(Ram, on_delete=models.CASCADE)
-    str_name = models.ForeignKey(Storage, on_delete=models.CASCADE)
+    mtb_name = models.CharField(blank=False, max_length=150)
+    cpu_name = models.CharField(blank=False, max_length=150)
+    vga_name = models.CharField(blank=False, max_length=150)
+    ram_name = models.CharField(blank=False, max_length=150)
+    str_name = models.CharField(blank=False, max_length=150)
 
     def __str__(self):
         return self.build_name
