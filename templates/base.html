@@ -100,11 +100,11 @@
             <div class="col-md-4" style="padding-top: 40px;">
               <a class="navbar-brand" href="#">Kategori</a>
               <hr style="border: 1px solid white">
-              <p style="color:white;">CPU</p>
-              <p style="color:white;">Motherboard</p>
-              <p style="color:white;">Memory</p>
-              <p style="color:white;">Storage</p>
-              <p style="color:white;">VGA</p>
+              <p ><a style="color:white;" href="{% url 'sim:cpu_home' %}">CPU</a></p>
+              <p ><a style="color:white;"href="{% url 'sim:mtb_home' %}">Motherboard</a></p>
+              <p ><a style="color:white;"href="{% url 'sim:ram_home' %}">Memory</a></p>
+              <p ><a style="color:white;"href="{% url 'sim:storage_home' %}">Storage</a></p>
+              <p ><a style="color:white;"href="{% url 'sim:vga_home' %}">Vga</a></p>
             </div>
             <div class="col-md-4" >
               <a class="navbar-brand" href="#">Tentang</a>

@@ -27,7 +27,7 @@
               {% for mtb in queryset %}
               <tr>
 
-                <td><a href="{% url 'sim:mtb_detail' pk=mtb.pk %}" style="color:black;"><img style="display: block; float:left; margin-right:15px; width:50px; height:50px"  src="{{ mtb.thumb_pic.url}}" alt="{{ mtb.name }}">{{ mtb.name }}</a></td>
+                <td><a href="{% url 'sim:mtb_detail' pk=mtb.pk %}" style="color:black;">{{ mtb.name }}</a></td>
                 <td style="text-align:center">{{mtb.socket}}</td>
                 <td style="text-align:center">{{mtb.form_factor}}</td>
                 <td style="text-align:center">{{mtb.mem_max}} GB</td>
