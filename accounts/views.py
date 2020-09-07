@@ -1,3 +1,4 @@
+from django.contrib.messages.views import SuccessMessageMixin
 from django.contrib.auth import login, logout
 from django.urls import reverse_lazy
 from django.views.generic import CreateView, UpdateView
@@ -7,10 +8,14 @@ from accounts.models import User
 
 from . import forms
 
-class SignUp(CreateView):
+class SignUp(SuccessMessageMixin, CreateView):
     form_class = forms.UserCreateForm
     success_url = reverse_lazy("login")
     template_name = "accounts/signup.html"
+    success_message = "Terimakasih telah mendaftar, Silahkan login dengan akun anda !"
+
+
+
 
 class UserUpdateView(LoginRequiredMixin,UpdateView):
     login_url = '/login/'

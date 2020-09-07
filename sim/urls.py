@@ -16,8 +16,8 @@ urlpatterns = [
     path('ram/post/<int:pk>/', RamDetailView.as_view(), name='ram_detail'),
     path('storage/', StorageView, name='storage_home'),
     path('Storage/post/<int:pk>/', StorageDetailView.as_view(), name='storage_detail'),
-    path('simulation/post', CreateSimView.as_view(), name='sim_post'),
+    path('simulation/post', CreateSimView, name='sim_post'),
     path('simulation/result', SimRes, name='sim_res'),
-    path('simulation/dssform', DssPostView.as_view(), name='dss_form'),
+    path('simulation/dssform', DssPostView, name='dss_form'),
     path('simulation/dssrest', DssRestView.as_view(), name='dss_rest'),
 ]

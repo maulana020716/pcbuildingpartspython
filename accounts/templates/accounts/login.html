@@ -4,6 +4,12 @@
 {% block content %}
 <div class="container">
   <div class="jumbotron">
+    {% if messages %}{% for message in messages %}
+      <div {% if message.tags %} class="alert {{ message.tags }}"{% endif %} id="msg" role="alert">
+        <h4>{{ message }}</h4>
+      </div>
+      {% endfor %}
+    {% endif %}
     <h1>Login</h1>
     <form method="POST">
         {% csrf_token %}

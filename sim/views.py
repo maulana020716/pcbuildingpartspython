@@ -1,10 +1,12 @@
-from django.shortcuts import render
+from django.shortcuts import render,get_object_or_404,redirect
+from django.contrib import messages
 from django.views.generic import ListView, CreateView, DetailView # new
 from django.urls import reverse_lazy # new
 from django.contrib.auth.mixins import LoginRequiredMixin
 from .forms import MtbPostForm, SimPostForm, DssPostForm # new
 from .models import Motherboard,Cpu,Vga,Ram,Storage,Simulation
 from django.db.models import Q, Count
+
 def is_valid_queryparam(param):
     return param != '' and param is not None
 
@@ -116,68 +118,93 @@ class CreateMtbView(LoginRequiredMixin, CreateView): # new
     form_class = MtbPostForm
     template_name = 'mtb_post.html'
     redirect_field_name = 'sim/mtb.html'
+def add_comment_to_post(request,pk):
+    post = get_object_or_404(Post,pk=pk)
+    if request.method == 'POST':
+        form = CommentForm(request.POST)
+        if form.is_valid():
+            comment = form.save(commit=False)
+            comment.post = post
+            comment.save()
+            return redirect('blog:post_detail',pk=post.pk)
+    else:
+        form = CommentForm()
+    return render(request,'blog/comment_form.html',{'form':form})
 
-class CreateSimView(LoginRequiredMixin, CreateView):
-    model = Simulation
-    form_class = SimPostForm
-    template_name = 'sim_post.html'
-    redirect_field_name = 'sim/sim_res.html'
-
-
-    def simpost(request):
-        mtb = Motherboard.objects.all()
-        cpu = Cpu.objects.all()
-        vga = Vga.objects.all()
-        ram = Ram.objects.all()
-        storage = Storage.objects.all()
-
-        mtbform = request.GET.get('mtb_name')
-        cpuform = request.GET.get('cpu_name')
-        vgaform = request.GET.get('vga_name')
-        ramform = request.GET.get('ram_name')
-        strform = request.GET.get('str_name')
-
-        simcpu = cpu.objects.values_list('socket', flat=True).filter(name__icontains=cpuform)
-        simcpu1 = mtb.objects.values_list('socket', flat=True).filter(name__icontains=mtbform)
-
-        simvga = vga.objects.values_list('vga_interface', flat=True).filter(name__icontains=vgaform)
-        simvga1 = mtb.objects.values_list('vga_interface', flat=True).filter(name__icontains=mtbform)
-
-        simram = ram.objects.values_list('mem_type', flat=True).filter(name__icontains=ramform)
-        simram1 = mtb.objects.values_list('mem_type', flat=True).filter(name__icontains=mtbform)
-
-        simstr = str.objects.values_list('str_interface', flat=True).filter(name__icontains=strform)
-        simstr1 = mtb.objects.values_list('str_interface', flat=True).filter(name__icontains=mtbform)
-
-        if simcpu == simcpu1 :
-            if simvga == simvga1:
-                if simram == simram1:
-                    if simstr == simstr1:
-                        form = SimPostForm(request.POST)
-                        if form.is_valid():
-                            form.save()
-                        return render(mtbform,cpuform,vgaform,ramform,strform,"/")
-                    else:
-                        strform = "not compatible"
-                        return render(mtbform,cpuform,vgaform,ramform,strform,"/")
-                else:
-                    ramform = "not compatible"
-                    return render(mtbform,cpuform,vgaform,ramform,strform,"/")
-            else:
-                vgaform = "not compatible"
-                return render(mtbform,cpuform,vgaform,ramform,strform,"/")
+def CreateSimView(request):
+    if request.user.is_authenticated:
+        if request.method == 'POST':
+            form = SimPostForm(request.POST)
+            if form.is_valid():
+                form.save()
+                return redirect('sim:sim_res')
         else:
-            cpuform = "not compatible"
-            return render(mtbform,cpuform,vgaform,ramform,strform,"/")
+            form = SimPostForm()
+        return render(request,'sim_post.html',{'form':form})
+
+        # create a form instance and populate it with data from the request:
+    else:
+        messages.info(request, 'Silahkan Login Terlebih Dahulu.')
+        return redirect('accounts:login')
+
+
+    # def simpost(request):
+    #     mtb = Motherboard.objects.all()
+    #     cpu = Cpu.objects.all()
+    #     vga = Vga.objects.all()
+    #     ram = Ram.objects.all()
+    #     storage = Storage.objects.all()
+    #
+    #     mtbform = request.GET.get('mtb_name')
+    #     cpuform = request.GET.get('cpu_name')
+    #     vgaform = request.GET.get('vga_name')
+    #     ramform = request.GET.get('ram_name')
+    #     strform = request.GET.get('str_name')
+    #
+    #     simcpu = cpu.objects.values_list('socket', flat=True).filter(name__icontains=cpuform)
+    #     simcpu1 = mtb.objects.values_list('socket', flat=True).filter(name__icontains=mtbform)
+    #
+    #     simvga = vga.objects.values_list('vga_interface', flat=True).filter(name__icontains=vgaform)
+    #     simvga1 = mtb.objects.values_list('vga_interface', flat=True).filter(name__icontains=mtbform)
+    #
+    #     simram = ram.objects.values_list('mem_type', flat=True).filter(name__icontains=ramform)
+    #     simram1 = mtb.objects.values_list('mem_type', flat=True).filter(name__icontains=mtbform)
+    #
+    #     simstr = str.objects.values_list('str_interface', flat=True).filter(name__icontains=strform)
+    #     simstr1 = mtb.objects.values_list('str_interface', flat=True).filter(name__icontains=mtbform)
+    #
+    #     if simcpu == simcpu1 :
+    #         if simvga == simvga1:
+    #             if simram == simram1:
+    #                 if simstr == simstr1:
+    #                     form = SimPostForm(request.POST)
+    #                     if form.is_valid():
+    #                         form.save()
+    #                     return render(mtbform,cpuform,vgaform,ramform,strform,"/")
+    #                 else:
+    #                     strform = "not compatible"
+    #                     return render(mtbform,cpuform,vgaform,ramform,strform,"/")
+    #             else:
+    #                 ramform = "not compatible"
+    #                 return render(mtbform,cpuform,vgaform,ramform,strform,"/")
+    #         else:
+    #             vgaform = "not compatible"
+    #             return render(mtbform,cpuform,vgaform,ramform,strform,"/")
+    #     else:
+    #         cpuform = "not compatible"
+    #         return render(mtbform,cpuform,vgaform,ramform,strform,"/")
 
 def SimRes(request):
     return render(request,"sim_res.html")
 
-class DssPostView(LoginRequiredMixin,ListView):
-    model = Simulation
-    form_class = DssPostForm
-    template_name = 'dss_form.html'
-    redirect_field_name = 'sim/sim_res.html'
+def DssPostView(request):
+    if request.user.is_authenticated:
+        form = DssPostForm()
+        return render(request, "dss_form.html", {'form': form})
+
+    else:
+        messages.info(request, 'Silahkan Login Terlebih Dahulu.')
+        return redirect('accounts:login')
 
 class DssRestView(LoginRequiredMixin,ListView):
     template_name = 'dss_res.html'
