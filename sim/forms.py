@@ -17,4 +17,8 @@ class DssPostForm(forms.ModelForm):
 
     class Meta:
         model = Simulation
-        fields = ['mtb_name']
+        fields = ['cpu_name']
+
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        self.fields["cpu_name"].label = "Pilih Cpu"

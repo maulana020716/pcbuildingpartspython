@@ -118,18 +118,6 @@ class CreateMtbView(LoginRequiredMixin, CreateView): # new
     form_class = MtbPostForm
     template_name = 'mtb_post.html'
     redirect_field_name = 'sim/mtb.html'
-def add_comment_to_post(request,pk):
-    post = get_object_or_404(Post,pk=pk)
-    if request.method == 'POST':
-        form = CommentForm(request.POST)
-        if form.is_valid():
-            comment = form.save(commit=False)
-            comment.post = post
-            comment.save()
-            return redirect('blog:post_detail',pk=post.pk)
-    else:
-        form = CommentForm()
-    return render(request,'blog/comment_form.html',{'form':form})
 
 def CreateSimView(request):
     if request.user.is_authenticated:
@@ -137,12 +125,42 @@ def CreateSimView(request):
             form = SimPostForm(request.POST)
             if form.is_valid():
                 form.save()
-                return redirect('sim:sim_res')
+                mtb_name = form.cleaned_data.get('mtb_name')
+                cpu_name = form.cleaned_data.get('cpu_name')
+                vga_name = form.cleaned_data.get('vga_name')
+                ram_name = form.cleaned_data.get('ram_name')
+                str_name = form.cleaned_data.get('str_name')
+
+                context = {'mtb_name':mtb_name, 'cpu_name':cpu_name, 'vga_name':vga_name, 'ram_name':ram_name,'str_name':str_name}
+                return render(request,'sim_res.html', context)
+            else:
+                form = SimPostForm()
         else:
             form = SimPostForm()
         return render(request,'sim_post.html',{'form':form})
+    else:
+        messages.info(request, 'Silahkan Login Terlebih Dahulu.')
+        return redirect('accounts:login')
 
-        # create a form instance and populate it with data from the request:
+def CreateSimView1(request):
+    if request.user.is_authenticated:
+        if request.method == 'POST':
+            form = SimPostForm(request.POST)
+            if form.is_valid():
+                form.save()
+                mtb_name = form.cleaned_data.get('mtb_name')
+                cpu_name = form.cleaned_data.get('cpu_name')
+                vga_name = form.cleaned_data.get('vga_name')
+                ram_name = form.cleaned_data.get('ram_name')
+                str_name = form.cleaned_data.get('str_name')
+
+                context = {'mtb_name':mtb_name, 'cpu_name':cpu_name, 'vga_name':vga_name, 'ram_name':ram_name,'str_name':str_name}
+                return render(request,'sim_res1.html', context)
+            else:
+                form = SimPostForm()
+        else:
+            form = SimPostForm()
+        return render(request,'sim_post1.html',{'form':form})
     else:
         messages.info(request, 'Silahkan Login Terlebih Dahulu.')
         return redirect('accounts:login')
@@ -197,10 +215,58 @@ def CreateSimView(request):
 def SimRes(request):
     return render(request,"sim_res.html")
 
+def SimRes1(request):
+    return render(request,"sim_res1.html")
+
 def DssPostView(request):
     if request.user.is_authenticated:
         form = DssPostForm()
         return render(request, "dss_form.html", {'form': form})
+
+    else:
+        messages.info(request, 'Silahkan Login Terlebih Dahulu.')
+        return redirect('accounts:login')
+
+def DssPostViewCpu(request):
+    if request.user.is_authenticated:
+        form = DssPostForm()
+        return render(request, "dss_form_cpu.html",{'form':form})
+
+    else:
+        messages.info(request, 'Silahkan Login Terlebih Dahulu.')
+        return redirect('accounts:login')
+
+def DssPostViewCpu1(request):
+    if request.user.is_authenticated:
+        form = DssPostForm()
+        return render(request, "dss_form_cpu1.html",{'form':form})
+
+    else:
+        messages.info(request, 'Silahkan Login Terlebih Dahulu.')
+        return redirect('accounts:login')
+
+def DssPostViewCpu2(request):
+    if request.user.is_authenticated:
+        form = DssPostForm()
+        return render(request, "dss_form_cpu2.html",{'form':form})
+
+    else:
+        messages.info(request, 'Silahkan Login Terlebih Dahulu.')
+        return redirect('accounts:login')
+
+def DssPostViewCpu3(request):
+    if request.user.is_authenticated:
+        form = DssPostForm()
+        return render(request, "dss_form_cpu3.html",{'form':form})
+
+    else:
+        messages.info(request, 'Silahkan Login Terlebih Dahulu.')
+        return redirect('accounts:login')
+
+def DssPostViewCpu4(request):
+    if request.user.is_authenticated:
+        form = DssPostForm()
+        return render(request, "dss_form_cpu4.html",{'form':form})
 
     else:
         messages.info(request, 'Silahkan Login Terlebih Dahulu.')

@@ -10,7 +10,7 @@
           {% csrf_token %}
           <div class="form-group">
           <div class="form-group">
-            <label for="mtb">Motherboard</label>
+            <label for="mtb" >Motherboard</label>
             <p><a href="https://pcbuildingparts.herokuapp.com/sim/motherboard/post/4/">
             <img  style="margin-right:20px;"width="200px" height="200px" src="https://pcbuildingparts.herokuapp.com/media/mtb/9bf978a8545947c14c8ab7b7338f9ae2.1600_ZUpyRVs.jpg"></a>
             <input style="width: 820px;" value="Asus PRIME Z390-A ATX LGA1151 Motherboard" id="mtb" type="text" name="mtb_name" value="{{ form.mtb_name.value|default_if_none:"" }}"></p>
@@ -35,15 +35,16 @@
           </div>
           <div class="form-group">
             <label for="cpu">Cpu</label>
-            <p><a href="https://pcbuildingparts.herokuapp.com/sim/cpu/post/49/">
-            <img  style="margin-right:20px;"width="200px" height="200px" src="https://pcbuildingparts.herokuapp.com/media/cpu/658de8a85dd1c0af16b8f020ed5bb2da.1600.jpg"></a>
-            <input style="width: 820px;" value="Intel Core i5-9600KF 3.7 GHz 6-Core Processor" id="mtb" type="text" name="mtb_name" value="{{ form.mtb_name.value|default_if_none:"" }}"></p>
+            <p><a href="https://pcbuildingparts.herokuapp.com/sim/cpu/post/36/">
+            <img  style="margin-right:20px;"width="200px" height="200px" src="https://pcbuildingparts.herokuapp.com/media/cpu/f2cacb6e0f6003d798989357654aff3c.1600.jpg"></a>
+            <input style="width: 820px;" value="AMD Threadripper 3970X 3.7 GHz 32-Core Processor" id="mtb" type="text" name="mtb_name" value="{{ form.mtb_name.value|default_if_none:"" }}"></p>
           </div>
-          <div style="background-color:lightgreen;" class="jumbotron">
-            <h3>Selamat !!!.</h3>
-            <h3>Hardware anda kompatibel silahkan klik masing masing dari hardware untuk melihat detail dan harga jika anda tertarik.</h3>
+          <div style="background-color:#dc3545;" class="jumbotron">
+            <h3 style="color:white">Terdapat beberapa Hardware yang tidak kompatibel diantaranya :</h3>
+            <h3 style="color:white">1. Asus PRIME Z390-A ATX LGA1151 Motherboard (Socket : LGA1151)</h3>
+            <h3 style="color:white">2. AMD Threadripper 3970X 3.7 GHz 32-Core Processor (Socket : sTRX4)</h3>
           </div>
-          <button type="button" onclick="location.href = '{% url 'sim:sim_post1' %}';" class="btn btn-secondary">Lakukan Simulasi Lagi</button>
+          <button type="button" onclick="location.href = '{% url 'sim:sim_post' %}';" class="btn btn-secondary">Lakukan Simulasi Lagi</button>
         </form>
     </div>
   </div>
