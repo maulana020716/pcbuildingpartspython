@@ -1,6 +1,11 @@
 from django.urls import path
 
-from .views import MotherboardView, CreateMtbView, MtbDetailView, CpuView, CpuDetailView,DssPostViewCpu,DssPostViewCpu4,DssPostViewCpu3,DssPostViewCpu2, VgaView, VgaDetailView, RamView,DssPostViewCpu1, RamDetailView, StorageView, StorageDetailView, CreateSimView, CreateSimView1, SimRes, SimRes1, DssPostView,DssRestView
+from .views import (MotherboardView, CreateMtbView, MtbDetailView, CpuView,
+CpuDetailView,DssPostViewCpu,DssPostViewRam, DssPostViewRam1, DssPostViewRam2,
+DssPostViewRam3, DssPostResRam, DssPostViewCpu4,DssPostViewCpu3,
+DssPostViewCpu2, VgaView, VgaDetailView, RamView,DssPostViewCpu1, RamDetailView,
+StorageView, StorageDetailView, CreateSimView, CreateSimView1, SimRes, SimRes1,
+DssPostView,DssRestView)
 
 app_name = 'sim'
 
@@ -25,5 +30,10 @@ urlpatterns = [
     path('simulation/dssformcpu2', DssPostViewCpu2, name='dss_form_cpu2'),
     path('simulation/dssformcpu3', DssPostViewCpu3, name='dss_form_cpu3'),
     path('simulation/dssformcpu4', DssPostViewCpu4, name='dss_form_cpu4'),
+    path('simulation/dssformram', DssPostViewRam, name='dss_form_ram'),
+    path('simulation/dssformram1', DssPostViewRam1, name='dss_form_ram1'),
+    path('simulation/dssformram2', DssPostViewRam2, name='dss_form_ram2'),
+    path('simulation/dssformram3', DssPostViewRam3, name='dss_form_ram3'),
+    path('simulation/dssresram', DssPostResRam, name='dss_res_ram'),
     path('simulation/dssrest', DssRestView.as_view(), name='dss_rest'),
 ]

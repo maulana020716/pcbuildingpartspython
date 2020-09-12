@@ -22,3 +22,13 @@ class DssPostForm(forms.ModelForm):
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
         self.fields["cpu_name"].label = "Pilih Cpu"
+
+class DssPostFormRam(forms.ModelForm):
+
+    class Meta:
+        model = Simulation
+        fields = ['ram_name']
+
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        self.fields["ram_name"].label = "Pilih Ram"

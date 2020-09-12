@@ -3,7 +3,7 @@ from django.contrib import messages
 from django.views.generic import ListView, CreateView, DetailView # new
 from django.urls import reverse_lazy # new
 from django.contrib.auth.mixins import LoginRequiredMixin
-from .forms import MtbPostForm, SimPostForm, DssPostForm # new
+from .forms import MtbPostForm, SimPostForm, DssPostForm, DssPostFormRam # new
 from .models import Motherboard,Cpu,Vga,Ram,Storage,Simulation
 from django.db.models import Q, Count
 
@@ -267,6 +267,51 @@ def DssPostViewCpu4(request):
     if request.user.is_authenticated:
         form = DssPostForm()
         return render(request, "dss_form_cpu4.html",{'form':form})
+
+    else:
+        messages.info(request, 'Silahkan Login Terlebih Dahulu.')
+        return redirect('accounts:login')
+
+def DssPostViewRam(request):
+    if request.user.is_authenticated:
+        form = DssPostFormRam()
+        return render(request, "dss_form_ram.html",{'form':form})
+
+    else:
+        messages.info(request, 'Silahkan Login Terlebih Dahulu.')
+        return redirect('accounts:login')
+
+def DssPostViewRam1(request):
+    if request.user.is_authenticated:
+        form = DssPostFormRam()
+        return render(request, "dss_form_ram1.html",{'form':form})
+
+    else:
+        messages.info(request, 'Silahkan Login Terlebih Dahulu.')
+        return redirect('accounts:login')
+
+def DssPostViewRam2(request):
+    if request.user.is_authenticated:
+        form = DssPostFormRam()
+        return render(request, "dss_form_ram2.html",{'form':form})
+
+    else:
+        messages.info(request, 'Silahkan Login Terlebih Dahulu.')
+        return redirect('accounts:login')
+
+def DssPostViewRam3(request):
+    if request.user.is_authenticated:
+        form = DssPostFormRam()
+        return render(request, "dss_form_ram3.html",{'form':form})
+
+    else:
+        messages.info(request, 'Silahkan Login Terlebih Dahulu.')
+        return redirect('accounts:login')
+
+def DssPostResRam(request):
+    if request.user.is_authenticated:
+        form = DssPostFormRam()
+        return render(request, "dss_res_ram.html",{'form':form})
 
     else:
         messages.info(request, 'Silahkan Login Terlebih Dahulu.')

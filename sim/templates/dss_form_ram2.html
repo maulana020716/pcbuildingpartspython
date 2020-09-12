@@ -23,7 +23,7 @@
             break;
 
             case "RAM":
-            window.location="{% url 'sim:dss_form_ram' %}";
+            window.location="{% url 'sim:sim_res' %}";
             break;
             case "VGA":
             window.location="{% url 'sim:sim_post1' %}";
@@ -61,16 +61,23 @@
             <form method="post" enctype="multipart/form-data">
               {% csrf_token %}
               {% bootstrap_form form %}
+
             </form>
-            <form action="{% url 'sim:dss_form_cpu2' %}">
+            <form action="{% url 'sim:dss_form_ram3' %}">
               <button type="submit" style="width: 1050px;" class="btn btn-secondary">Bandingkan</button>
             </form>
 
+
           <br>
           <div class="form-group">
-            <p><a href="https://pcbuildingparts.herokuapp.com/sim/cpu/post/10/">
-            <img  style="margin-right:20px;"width="200px" height="200px" src="https://pcbuildingparts.herokuapp.com/media/cpu/658de8a85dd1c0af16b8f020ed5bb2da.1600.jpg"></a>
-            <input style="width: 820px;" value="Intel Core i5-9600KF 3.7 GHz 6-Core Processor" id="mtb" type="text" name="mtb_name" value="{{ form.mtb_name.value|default_if_none:"" }}"></p>
+            <p><a href="https://pcbuildingparts.herokuapp.com/sim/ram/post/2/">
+            <img  style="margin-right:20px;"width="200px" height="200px" src="https://pcbuildingparts.herokuapp.com/media/ram/51Hl4NFFaeL_gjfXy8O.jpg"></a>
+            <input style="width: 820px;" value="Corsair Vengeance RGB Pro 16 GB (2 x 8 GB) DDR4-3200 CL16 Memory" id="mtb" type="text" name="mtb_name" value="{{ form.mtb_name.value|default_if_none:"" }}"></p>
+          </div>
+          <div class="form-group">
+            <p><a href="https://pcbuildingparts.herokuapp.com/sim/ram/post/8/">
+            <img  style="margin-right:20px;"width="200px" height="200px" src="https://pcbuildingparts.herokuapp.com/media/ram/20348ef9eb7ca86600eefb50c6a56597.1600.jpg"></a>
+            <input style="width: 820px;" value="	G.Skill Trident Z Neo 32 GB (2 x 16 GB) DDR4-3600 CL16 Memory" id="mtb" type="text" name="mtb_name" value="{{ form.mtb_name.value|default_if_none:"" }}"></p>
           </div>
           <br>
         </form>
@@ -79,7 +86,7 @@
         <hr>
         <div class="row">
           <div class="col-md-3">
-            <h5>Jumlah Core</h5>
+            <h5>Kecepatan</h5>
               <hr>
             <select id="cars" style="width: 200px; height: 30px;" name="cars">
               <option value="volvo">1</option>
@@ -89,7 +96,7 @@
             </select>
           </div>
           <div class="col-md-3">
-            <h5>Core Clock</h5>
+            <h5>Jumlah Module</h5>
               <hr>
             <select id="cars" style="width: 200px; height: 30px;" name="cars">
               <option value="volvo">1</option>
@@ -99,7 +106,7 @@
             </select>
           </div>
           <div class="col-md-3">
-            <h5>Daya Pemakaian</h5>
+            <h5>Latency</h5>
               <hr>
             <select id="cars" style="width: 200px; height: 30px;" name="cars">
               <option value="volvo">1</option>
@@ -127,6 +134,7 @@
         <form action="{% url 'sim:dss_rest' %}">
             <button type="submit" style="width: 1050px;" class="btn btn-secondary" >Proses</button>
         </form>
+
     </div>
   </div>
 {% endblock %}

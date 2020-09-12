@@ -1,0 +1,67 @@
+{% extends "base.html" %}
+{% load bootstrap4 %}
+{% block content %}
+  <div class="container">
+    <div class="jumbotron">
+      <h1>Hasil Perbandingan</h1>
+        <br>
+          <div class="row">
+            <div class="table-responsive">
+              <table class="table table-striped" style="font-size:12px;">
+                <thead  style="text-align:center">
+                  <th scope="col">Nama</th>
+                  <th scope="col">Peringkat</th>
+                  <th scope="col">Kecepatan</th>
+                  <th scope="col">Jumlah Module</th>
+                  <th scope="col">Latency</th>
+                  <th scope="col">Harga</th>
+                  <th scope="col">Total Nilai</th>
+
+                </thead>
+                <tbody>
+                  <tr>
+                    <td><a href="https://pcbuildingparts.herokuapp.com/sim/ram/post/2/" style="color:black;">
+                      <img style="display: block; float:left; margin-right:15px; width:50px; height:50px"
+                      src="https://pcbuildingparts.herokuapp.com/media/ram/51Hl4NFFaeL_gjfXy8O.jpg" alt="{{ mtb.name }}">AMD Ryzen 5 3600 3.6 GHz 6-Core Processor</a></td>
+                    <td style="text-align:center">1</td>
+                    <td style="text-align:center">DDR4-3200</td>
+                    <td style="text-align:center">2 x 8 GB</td>
+                    <td style="text-align:center">16 MHz</td>
+                    <td style="text-align:center">Rp. 1.279.666</td>
+                    <td style="text-align:center">0.723</td>
+                  </tr>
+                  <tr>
+                    <td><a href="https://pcbuildingparts.herokuapp.com/sim/ram/post/8/" style="color:black;">
+                      <img style="display: block; float:left; margin-right:15px; width:50px; height:50px"
+                      src="https://pcbuildingparts.herokuapp.com/media/ram/20348ef9eb7ca86600eefb50c6a56597.1600.jpg" alt="{{ mtb.name }}">G.Skill Trident Z Neo 32 GB (2 x 16 GB) DDR4-3600 CL16 Memory</a></td>
+                    <td style="text-align:center">2</td>
+                    <td style="text-align:center">DDR4-3600</td>
+                    <td style="text-align:center">3,6 GHz</td>
+                    <td style="text-align:center">2 x 16 GB</td>
+                    <td style="text-align:center">Rp. 2.485.918</td>
+                    <td style="text-align:center">0.673</td>
+                  </tr>
+                  <tr>
+                    <td><a href="https://pcbuildingparts.herokuapp.com/sim/ram/post/1/" style="color:black;">
+                      <img style="display: block; float:left; margin-right:15px; width:50px; height:50px"
+                      src="https://pcbuildingparts.herokuapp.com/media/ram/0d7ccc6bb32c1a857bdfc56d9eb74081.1600_Zx1gei7.jpg" alt="{{ mtb.name }}">Corsair Vengeance LPX 16 GB (2 x 8 GB) DDR4-3200 CL16 Memory</a></td>
+                    <td style="text-align:center">3</td>
+                    <td style="text-align:center">DDR4-3200</td>
+                    <td style="text-align:center">2 x 8 GB</td>
+                    <td style="text-align:center">16 MHz</td>
+                    <td style="text-align:center">Rp. 957.458</td>
+                    <td style="text-align:center">0.604</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+        </form>
+        <br>
+        <div class="alert alert-success" role="alert">
+          Tabel diatas adalah peringkat dari hardware terbaik menurut bobot yang anda pilih.
+          Silahkan klik masing masing dari hardware untuk melihat detail jika anda tertarik.
+        </div>
+      </div>
+    </div>
+  </div>
+{% endblock %}
