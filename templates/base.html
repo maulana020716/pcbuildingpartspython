@@ -54,8 +54,8 @@
                     </a>
                     <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                       <a class="dropdown-item" href="{% url 'admin:index' %}">Admin</a>
-                      <a class="dropdown-item" href="{% url 'blog:post_new' %}" >New Post</a>
-                      <a class="dropdown-item" href="{% url 'blog:post_draft_list' %}">Drafts</a>
+                      <a class="dropdown-item" href="{% url 'blog:post_new' %}" >Buat Blog</a>
+                      <a class="dropdown-item" href="{% url 'blog:post_draft_list' %}">Kumpulan Blog</a>
                       <a class="dropdown-item" href="{% url 'accounts:logout' %}">Logout</a>
                     </div>
                   </li>
@@ -67,9 +67,8 @@
                     Selamat Datang {{user.username}}
                   </a>
                   <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                    <a class="dropdown-item" href="">Profil</a>
-                    <a class="dropdown-item" href="{% url 'blog:post_new' %}" >New Post</a>
-                    <a class="dropdown-item" href="{% url 'blog:post_draft_list' %}">Drafts</a>
+                    <a class="dropdown-item" href="{% url 'blog:post_new' %}" >Buat Blog</a>
+                    <a class="dropdown-item" href="{% url 'blog:post_draft_list' %}">Kumpulan Blog</a>
                     <a class="dropdown-item" href="{% url 'accounts:logout' %}">Logout</a>
                   </div>
                 </li>
