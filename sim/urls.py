@@ -2,10 +2,12 @@ from django.urls import path
 
 from .views import (MotherboardView, CreateMtbView, MtbDetailView, CpuView,
 CpuDetailView,DssPostViewCpu,DssPostViewRam, DssPostViewRam1, DssPostViewRam2,
-DssPostViewRam3, DssPostResRam, DssPostViewCpu4,DssPostViewCpu3,
-DssPostViewCpu2, VgaView, VgaDetailView, RamView,DssPostViewCpu1, RamDetailView,
-StorageView, StorageDetailView, CreateSimView, CreateSimView1, SimRes, SimRes1,
-DssPostView,DssRestView)
+DssPostViewRam3, DssPostResRam, DssPostViewCpu4,DssPostViewCpu3,DssPostViewVga,
+DssPostViewVga1,DssPostViewVga2,DssPostViewVga3,DssPostViewVga4,DssPostViewVga5,
+DssRestViewVga,DssPostViewCpu2, VgaView, VgaDetailView, RamView,DssPostViewCpu1,
+DssPostViewStr,DssPostViewStr1,DssPostViewStr2,DssRestViewStr,
+RamDetailView,StorageView, StorageDetailView, CreateSimView, CreateSimView1,
+SimRes, SimRes1, DssPostView,DssRestView)
 
 app_name = 'sim'
 
@@ -30,10 +32,21 @@ urlpatterns = [
     path('simulation/dssformcpu2', DssPostViewCpu2, name='dss_form_cpu2'),
     path('simulation/dssformcpu3', DssPostViewCpu3, name='dss_form_cpu3'),
     path('simulation/dssformcpu4', DssPostViewCpu4, name='dss_form_cpu4'),
+    path('simulation/dssrest', DssRestView.as_view(), name='dss_rest'),
     path('simulation/dssformram', DssPostViewRam, name='dss_form_ram'),
     path('simulation/dssformram1', DssPostViewRam1, name='dss_form_ram1'),
     path('simulation/dssformram2', DssPostViewRam2, name='dss_form_ram2'),
     path('simulation/dssformram3', DssPostViewRam3, name='dss_form_ram3'),
     path('simulation/dssresram', DssPostResRam, name='dss_res_ram'),
-    path('simulation/dssrest', DssRestView.as_view(), name='dss_rest'),
+    path('simulation/dssformvga', DssPostViewVga, name='dss_form_vga'),
+    path('simulation/dssformvga1', DssPostViewVga1, name='dss_form_vga1'),
+    path('simulation/dssformvga2', DssPostViewVga2, name='dss_form_vga2'),
+    path('simulation/dssformvga3', DssPostViewVga3, name='dss_form_vga3'),
+    path('simulation/dssformvga4', DssPostViewVga4, name='dss_form_vga4'),
+    path('simulation/dssformvga5', DssPostViewVga5, name='dss_form_vga5'),
+    path('simulation/dssresvga', DssRestViewVga, name='dss_res_vga'),
+    path('simulation/dssformstr', DssPostViewStr, name='dss_form_str'),
+    path('simulation/dssformstr1', DssPostViewStr1, name='dss_form_str1'),
+    path('simulation/dssformstr2', DssPostViewStr2, name='dss_form_str2'),
+    path('simulation/dssresstr', DssRestViewStr, name='dss_res_str'),
 ]

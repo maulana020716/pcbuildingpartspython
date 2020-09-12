@@ -1,0 +1,56 @@
+{% extends "base.html" %}
+{% load bootstrap4 %}
+{% block content %}
+  <div class="container">
+    <div class="jumbotron">
+      <h1>Hasil Perbandingan</h1>
+        <br>
+          <div class="row">
+            <div class="table-responsive">
+              <table class="table table-striped" style="font-size:12px;">
+                <thead  style="text-align:center">
+                  <th scope="col">Nama</th>
+                  <th scope="col">Peringkat</th>
+                  <th scope="col">Kapasitas Memori</th>
+                  <th scope="col">Tipe</th>
+                  <th scope="col">Cache</th>
+                  <th scope="col">Harga</th>
+                  <th scope="col">Total Nilai</th>
+
+                </thead>
+                <tbody>
+                  <tr>
+                    <td><a href="https://pcbuildingparts.herokuapp.com/sim/Storage/post/1/" style="color:black;">
+                      <img style="display: block; float:left; margin-right:15px; width:50px; height:50px"
+                      src="https://pcbuildingparts.herokuapp.com/media/storage/c7b5b7dacbecdcdd0e073b761193eef6.1600_dinU9Sk.jpg" alt="{{ mtb.name }}">Seagate Barracuda Compute 2 TB 3.5" 7200RPM Internal Hard Drive</a></td>
+                    <td style="text-align:center">1</td>
+                    <td style="text-align:center">2000 GB</td>
+                    <td style="text-align:center">7200 RPM</td>
+                    <td style="text-align:center">256 MB	</td>
+                    <td style="text-align:center">Rp. 869.553</td>
+                    <td style="text-align:center">0.723</td>
+                  </tr>
+                  <tr>
+                    <td><a href="https://pcbuildingparts.herokuapp.com/sim/Storage/post/3/" style="color:black;">
+                      <img style="display: block; float:left; margin-right:15px; width:50px; height:50px"
+                      src="https://pcbuildingparts.herokuapp.com/media/storage/51fbLQLVJFL.jpg" alt="{{ mtb.name }}">Western Digital Caviar Blue 1 TB 3.5" 7200RPM Internal Hard Drive</a></td>
+                    <td style="text-align:center">2</td>
+                    <td style="text-align:center">1000 GB</td>
+                    <td style="text-align:center">7200 RPM</td>
+                    <td style="text-align:center">64 MB	</td>
+                    <td style="text-align:center">Rp. 664.838</td>
+                    <td style="text-align:center">0.673</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+        </form>
+        <br>
+        <div class="alert alert-success" role="alert">
+          Tabel diatas adalah peringkat dari hardware terbaik menurut bobot yang anda pilih.
+          Silahkan klik masing masing dari hardware untuk melihat detail jika anda tertarik.
+        </div>
+      </div>
+    </div>
+  </div>
+{% endblock %}

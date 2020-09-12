@@ -23,10 +23,10 @@
             break;
 
             case "RAM":
-            window.location="{% url 'sim:sim_res' %}";
+            window.location="{% url 'sim:dss_form_ram' %}";
             break;
             case "VGA":
-            window.location="{% url 'sim:sim_post1' %}";
+            window.location="{% url 'sim:dss_form_vga' %}";
             break;
 
             case "STR":
@@ -44,9 +44,9 @@
             </head>
             <body>
 
-            <SELECT style="width: 1050px; height: 40px;" id="s1" NAME="section" onChange="SelectRedirect();">
-            <Option value="RAM">Ram</option>
-            </SELECT>
+              <SELECT style="width: 1050px; height: 40px;" id="s1" NAME="section" onChange="SelectRedirect();">
+              <Option value="VGA">Vga</option>
+              </SELECT>
 
 
           </form>
@@ -60,13 +60,37 @@
               {% bootstrap_form form %}
 
             </form>
-            <form action="{% url 'sim:dss_form_ram1' %}">
+            <form action="{% url 'sim:dss_form_vga5' %}">
               <button type="submit" style="width: 1050px;" class="btn btn-secondary">Bandingkan</button>
             </form>
 
 
           <br>
-
+          <div class="form-group">
+            <p><a href="https://pcbuildingparts.herokuapp.com/sim/vga/post/1/">
+            <img  style="margin-right:20px;"width="200px" height="200px" src="https://pcbuildingparts.herokuapp.com/media/vga/6e5072741610a7e5c15c06b8206464cc.1600.jpg"></a>
+            <input style="width: 820px;" value="Gigabyte GeForce RTX 2070 SUPER 8 GB WINDFORCE OC 3X Video Card" id="mtb" type="text" name="mtb_name" value="{{ form.mtb_name.value|default_if_none:"" }}"></p>
+          </div>
+          <div class="form-group">
+            <p><a href="https://pcbuildingparts.herokuapp.com/sim/vga/post/2/">
+            <img  style="margin-right:20px;"width="200px" height="200px" src="https://pcbuildingparts.herokuapp.com/media/vga/9c57e7f04b05270bcf7edb9fcf4c715c.1600.jpg"></a>
+            <input style="width: 820px;" value="MSI GeForce GTX 1660 SUPER 6 GB VENTUS XS OC Video Card" id="mtb" type="text" name="mtb_name" value="{{ form.mtb_name.value|default_if_none:"" }}"></p>
+          </div>
+          <div class="form-group">
+            <p><a href="https://pcbuildingparts.herokuapp.com/sim/vga/post/3/">
+            <img  style="margin-right:20px;"width="200px" height="200px" src="https://pcbuildingparts.herokuapp.com/media/vga/41wfOvv27L.jpg"></a>
+            <input style="width: 820px;" value="NVIDIA GeForce RTX 2060 SUPER 8 GB Video Card" id="mtb" type="text" name="mtb_name" value="{{ form.mtb_name.value|default_if_none:"" }}"></p>
+          </div>
+          <div class="form-group">
+            <p><a href="https://pcbuildingparts.herokuapp.com/sim/vga/post/4/">
+            <img  style="margin-right:20px;"width="200px" height="200px" src="https://pcbuildingparts.herokuapp.com/media/vga/41MyTwkf-dL.jpg"></a>
+            <input style="width: 820px;" value="NVIDIA GeForce RTX 2070 SUPER 8 GB Video Card" id="mtb" type="text" name="mtb_name" value="{{ form.mtb_name.value|default_if_none:"" }}"></p>
+          </div>
+          <div class="form-group">
+            <p><a href="https://pcbuildingparts.herokuapp.com/sim/vga/post/5/">
+            <img  style="margin-right:20px;"width="200px" height="200px" src="https://pcbuildingparts.herokuapp.com/media/vga/e4a161f5e4a4392608d356aece78d3ce.1600.jpg"></a>
+            <input style="width: 820px;" value="Gigabyte GeForce GTX 1660 SUPER 6 GB OC Video Card" id="mtb" type="text" name="mtb_name" value="{{ form.mtb_name.value|default_if_none:"" }}"></p>
+          </div>
           <br>
         </form>
         <br>
@@ -74,7 +98,7 @@
         <hr>
         <div class="row">
           <div class="col-md-3">
-            <h5>Kecepatan</h5>
+            <h5>Kapasitas memory</h5>
               <hr>
             <select id="cars" style="width: 200px; height: 30px;" name="cars">
               <option value="volvo">1</option>
@@ -84,7 +108,7 @@
             </select>
           </div>
           <div class="col-md-3">
-            <h5>Jumlah Module</h5>
+            <h5>Core clock</h5>
               <hr>
             <select id="cars" style="width: 200px; height: 30px;" name="cars">
               <option value="volvo">1</option>
@@ -94,7 +118,7 @@
             </select>
           </div>
           <div class="col-md-3">
-            <h5>Latency</h5>
+            <h5>Boost clock</h5>
               <hr>
             <select id="cars" style="width: 200px; height: 30px;" name="cars">
               <option value="volvo">1</option>
@@ -119,7 +143,7 @@
           <h6>*INFO : Pilih bobot anda dengan ketentuan 1 tidak penting 2 kurang penting 3 penting 4 sangat penting. </h6>
         </div>
         <br>
-        <form action="{% url 'sim:dss_rest' %}">
+        <form action="{% url 'sim:dss_res_vga' %}">
             <button type="submit" style="width: 1050px;" class="btn btn-secondary" >Proses</button>
         </form>
 

@@ -1,0 +1,88 @@
+{% extends "base.html" %}
+{% load bootstrap4 %}
+{% block content %}
+  <div class="container">
+    <div class="jumbotron">
+      <h1>Hasil Perbandingan</h1>
+        <br>
+          <div class="row">
+            <div class="table-responsive">
+              <table class="table table-striped" style="font-size:12px;">
+                <thead  style="text-align:center">
+                  <th scope="col">Nama</th>
+                  <th scope="col">Peringkat</th>
+                  <th scope="col">Kapasitas Memori</th>
+                  <th scope="col">Core Clock</th>
+                  <th scope="col">Boost Clock</th>
+                  <th scope="col">Harga</th>
+                  <th scope="col">Total Nilai</th>
+
+                </thead>
+                <tbody>
+                  <tr>
+                    <td><a href="https://pcbuildingparts.herokuapp.com/sim/vga/post/1/" style="color:black;">
+                      <img style="display: block; float:left; margin-right:15px; width:50px; height:50px"
+                      src="https://pcbuildingparts.herokuapp.com/media/vga/6e5072741610a7e5c15c06b8206464cc.1600.jpg" alt="{{ mtb.name }}">Gigabyte GeForce RTX 2070 SUPER 8 GB WINDFORCE OC 3X Video Card</a></td>
+                    <td style="text-align:center">1</td>
+                    <td style="text-align:center">8 GB</td>
+                    <td style="text-align:center">1605 MHz</td>
+                    <td style="text-align:center">1785 MHz</td>
+                    <td style="text-align:center">Rp. 10.697.397</td>
+                    <td style="text-align:center">0.723</td>
+                  </tr>
+                  <tr>
+                    <td><a href="https://pcbuildingparts.herokuapp.com/sim/vga/post/2/" style="color:black;">
+                      <img style="display: block; float:left; margin-right:15px; width:50px; height:50px"
+                      src="https://pcbuildingparts.herokuapp.com/media/vga/9c57e7f04b05270bcf7edb9fcf4c715c.1600.jpg" alt="{{ mtb.name }}">MSI GeForce GTX 1660 SUPER 6 GB VENTUS XS OC Video Card</a></td>
+                    <td style="text-align:center">2</td>
+                    <td style="text-align:center">6 GB</td>
+                    <td style="text-align:center">1530 MHz</td>
+                    <td style="text-align:center">1815 MHz</td>
+                    <td style="text-align:center">Rp. 3.692.792</td>
+                    <td style="text-align:center">0.673</td>
+                  </tr>
+                  <tr>
+                    <td><a href="https://pcbuildingparts.herokuapp.com/sim/vga/post/3/" style="color:black;">
+                      <img style="display: block; float:left; margin-right:15px; width:50px; height:50px"
+                      src="https://pcbuildingparts.herokuapp.com/media/vga/41wfOvv27L.jpg" alt="{{ mtb.name }}">NVIDIA GeForce RTX 2060 SUPER 8 GB Video Card</a></td>
+                    <td style="text-align:center">3</td>
+                    <td style="text-align:center">8 GB</td>
+                    <td style="text-align:center">1470 MHz</td>
+                    <td style="text-align:center">1650 MHz</td>
+                    <td style="text-align:center">Rp. 5.908.644</td>
+                    <td style="text-align:center">0.604</td>
+                  </tr>
+                  <tr>
+                    <td><a href="https://pcbuildingparts.herokuapp.com/sim/vga/post/4/" style="color:black;">
+                      <img style="display: block; float:left; margin-right:15px; width:50px; height:50px"
+                      src="https://pcbuildingparts.herokuapp.com/media/vga/41MyTwkf-dL.jpg" alt="{{ mtb.name }}">NVIDIA GeForce RTX 2070 SUPER 8 GB Video Card</a></td>
+                    <td style="text-align:center">4</td>
+                    <td style="text-align:center">8 GB</td>
+                    <td style="text-align:center">1605 MHz</td>
+                    <td style="text-align:center">1770 MHz</td>
+                    <td style="text-align:center">Rp. 7.385.879</td>
+                    <td style="text-align:center">0.604</td>
+                  </tr>
+                  <tr>
+                    <td><a href="https://pcbuildingparts.herokuapp.com/sim/vga/post/5/" style="color:black;">
+                      <img style="display: block; float:left; margin-right:15px; width:50px; height:50px"
+                      src="https://pcbuildingparts.herokuapp.com/media/vga/e4a161f5e4a4392608d356aece78d3ce.1600.jpg" alt="{{ mtb.name }}">Gigabyte GeForce GTX 1660 SUPER 6 GB OC Video Card</a></td>
+                    <td style="text-align:center">5</td>
+                    <td style="text-align:center">6 GB</td>
+                    <td style="text-align:center">1530 MHz</td>
+                    <td style="text-align:center">1830 MHz</td>
+                    <td style="text-align:center">Rp. 3.545.068</td>
+                    <td style="text-align:center">0.604</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+        <br>
+        <div class="alert alert-success" role="alert">
+          Tabel diatas adalah peringkat dari hardware terbaik menurut bobot yang anda pilih.
+          Silahkan klik masing masing dari hardware untuk melihat detail jika anda tertarik.
+        </div>
+      </div>
+    </div>
+  </div>
+{% endblock %}

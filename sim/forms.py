@@ -32,3 +32,23 @@ class DssPostFormRam(forms.ModelForm):
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
         self.fields["ram_name"].label = "Pilih Ram"
+
+class DssPostFormVga(forms.ModelForm):
+
+    class Meta:
+        model = Simulation
+        fields = ['vga_name']
+
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        self.fields["vga_name"].label = "Pilih Vga"
+
+class DssPostFormStr(forms.ModelForm):
+
+    class Meta:
+        model = Simulation
+        fields = ['str_name']
+
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        self.fields["str_name"].label = "Pilih Storage"

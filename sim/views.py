@@ -3,7 +3,7 @@ from django.contrib import messages
 from django.views.generic import ListView, CreateView, DetailView # new
 from django.urls import reverse_lazy # new
 from django.contrib.auth.mixins import LoginRequiredMixin
-from .forms import MtbPostForm, SimPostForm, DssPostForm, DssPostFormRam # new
+from .forms import MtbPostForm, SimPostForm, DssPostForm, DssPostFormRam, DssPostFormVga, DssPostFormStr # new
 from .models import Motherboard,Cpu,Vga,Ram,Storage,Simulation
 from django.db.models import Q, Count
 
@@ -312,6 +312,105 @@ def DssPostResRam(request):
     if request.user.is_authenticated:
         form = DssPostFormRam()
         return render(request, "dss_res_ram.html",{'form':form})
+
+    else:
+        messages.info(request, 'Silahkan Login Terlebih Dahulu.')
+        return redirect('accounts:login')
+
+def DssPostViewVga(request):
+    if request.user.is_authenticated:
+        form = DssPostFormVga()
+        return render(request, "dss_form_vga.html",{'form':form})
+
+    else:
+        messages.info(request, 'Silahkan Login Terlebih Dahulu.')
+        return redirect('accounts:login')
+
+def DssPostViewVga1(request):
+    if request.user.is_authenticated:
+        form = DssPostFormVga()
+        return render(request, "dss_form_vga1.html",{'form':form})
+
+    else:
+        messages.info(request, 'Silahkan Login Terlebih Dahulu.')
+        return redirect('accounts:login')
+
+def DssPostViewVga2(request):
+    if request.user.is_authenticated:
+        form = DssPostFormVga()
+        return render(request, "dss_form_vga2.html",{'form':form})
+
+    else:
+        messages.info(request, 'Silahkan Login Terlebih Dahulu.')
+        return redirect('accounts:login')
+
+def DssPostViewVga3(request):
+    if request.user.is_authenticated:
+        form = DssPostFormVga()
+        return render(request, "dss_form_vga3.html",{'form':form})
+
+    else:
+        messages.info(request, 'Silahkan Login Terlebih Dahulu.')
+        return redirect('accounts:login')
+
+def DssPostViewVga4(request):
+    if request.user.is_authenticated:
+        form = DssPostFormVga()
+        return render(request, "dss_form_vga4.html",{'form':form})
+
+    else:
+        messages.info(request, 'Silahkan Login Terlebih Dahulu.')
+        return redirect('accounts:login')
+
+def DssPostViewVga5(request):
+    if request.user.is_authenticated:
+        form = DssPostFormVga()
+        return render(request, "dss_form_vga5.html",{'form':form})
+
+    else:
+        messages.info(request, 'Silahkan Login Terlebih Dahulu.')
+        return redirect('accounts:login')
+
+def DssRestViewVga(request):
+    if request.user.is_authenticated:
+        form = DssPostFormVga()
+        return render(request, "dss_res_vga.html",{'form':form})
+
+    else:
+        messages.info(request, 'Silahkan Login Terlebih Dahulu.')
+        return redirect('accounts:login')
+
+def DssPostViewStr(request):
+    if request.user.is_authenticated:
+        form = DssPostFormStr()
+        return render(request, "dss_form_str.html",{'form':form})
+
+    else:
+        messages.info(request, 'Silahkan Login Terlebih Dahulu.')
+        return redirect('accounts:login')
+
+def DssPostViewStr1(request):
+    if request.user.is_authenticated:
+        form = DssPostFormStr()
+        return render(request, "dss_form_str1.html",{'form':form})
+
+    else:
+        messages.info(request, 'Silahkan Login Terlebih Dahulu.')
+        return redirect('accounts:login')
+
+def DssPostViewStr2(request):
+    if request.user.is_authenticated:
+        form = DssPostFormStr()
+        return render(request, "dss_form_str2.html",{'form':form})
+
+    else:
+        messages.info(request, 'Silahkan Login Terlebih Dahulu.')
+        return redirect('accounts:login')
+
+def DssRestViewStr(request):
+    if request.user.is_authenticated:
+        form = DssPostFormStr()
+        return render(request, "dss_res_str.html",{'form':form})
 
     else:
         messages.info(request, 'Silahkan Login Terlebih Dahulu.')
