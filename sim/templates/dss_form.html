@@ -58,16 +58,7 @@
 
           </form>
           <br>
-          <h4>Spesifikasi</h4>
-          <hr>
-          <form method="post" enctype="multipart/form-data">
-            {% csrf_token %}
-            {% bootstrap_form form %}
-
-          </form>
-          <form action="{% url 'sim:dss_form_cpu1' %}">
-            <button type="submit" style="width: 1050px;" class="btn btn-secondary">Bandingkan</button>
-          </form>
+          
           <br>
 
           <br>

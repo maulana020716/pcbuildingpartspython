@@ -18,20 +18,20 @@
             switch(document.getElementById('s1').value)
             {
 
-            case "CPU":
-            window.location="{% url 'sim:dss_form_cpu' %}";
-            break;
+              case "CPU":
+              window.location="{% url 'sim:dss_form_cpu' %}";
+              break;
 
-            case "RAM":
-            window.location="{% url 'sim:dss_form_ram' %}";
-            break;
-            case "VGA":
-            window.location="{% url 'sim:sim_post1' %}";
-            break;
+              case "RAM":
+              window.location="{% url 'sim:dss_form_ram' %}";
+              break;
+              case "VGA":
+              window.location="{% url 'sim:dss_form_vga' %}";
+              break;
 
-            case "STR":
-            window.location="{% url 'sim:sim_res' %}";
-            break;
+              case "STR":
+              window.location="{% url 'sim:dss_form_str' %}";
+              break;
 
             /// Can be extended to other different selections of SubCategory //////
             default:
@@ -46,9 +46,6 @@
 
             <SELECT style="width: 1050px; height: 40px;" id="s1" NAME="section" onChange="SelectRedirect();">
             <Option value="CPU">Cpu</option>
-            <Option value="VGA">Vga</option>
-            <Option value="RAM">Ram</option>
-            <Option value="STR">Storage</option>
             </SELECT>
 
 
